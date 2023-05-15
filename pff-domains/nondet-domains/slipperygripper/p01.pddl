@@ -1,0 +1,7 @@
+(define (problem ext-slippery-gripper)
+  (:domain ext-slippery-gripper)
+  (:init (gripper-clean)
+;	 (cpt (gripper-dry) 0.7)
+         (gripper-dry) 
+ )
+  (:goal 0.1 (and (gripper-clean) (holding-block) (block-painted))))

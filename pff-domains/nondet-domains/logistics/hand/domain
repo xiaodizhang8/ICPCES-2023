@@ -1,0 +1,57 @@
+(define (domain logistics-strips)
+  (:requirements :strips) 
+  (:predicates 	(OBJ ?obj)
+	       	(TRUCK ?truck)
+               	(LOCATION ?loc)
+		(AIRPLANE ?airplane)
+                (CITY ?city)
+                (AIRPORT ?airport)
+		(at ?obj ?loc)
+		(in ?obj1 ?obj2)
+		(in-city ?obj ?city))
+ 
+  ; (:types )		; default object
+
+
+(:action LOAD-AIRPLANE
+  :parameters
+   (?obj
+    ?airplane
+    ?loc)
+  :precondition
+   (and (OBJ ?obj) (AIRPLANE ?airplane) (LOCATION ?loc)
+   (at ?airplane ?loc))
+  :effect
+   (and 
+	(whenpc 0.9 (at ?obj ?loc) (and (not (at ?obj ?loc)) (in ?obj ?airplane)))
+	(whenpc 0.1 (at ?obj ?loc) (and))
+   )
+)
+
+(:action UNLOAD-AIRPLANE
+  :parameters
+   (?obj
+    ?airplane
+    ?loc)
+  :precondition
+   (and (OBJ ?obj) (AIRPLANE ?airplane) (LOCATION ?loc)
+        (at ?airplane ?loc))
+  :effect
+   (and 
+	(whenpc 0.8 (in ?obj ?airplane) (and (not (in ?obj ?airplane)) (at ?obj ?loc)))
+	(whenpc 0.2 (in ?obj ?airplane) (and))
+   )
+)
+
+
+(:action FLY-AIRPLANE
+  :parameters
+   (?airplane
+    ?loc-from
+    ?loc-to)
+  :precondition
+   (and (AIRPLANE ?airplane) (AIRPORT ?loc-from) (AIRPORT ?loc-to)
+	(at ?airplane ?loc-from))
+  :effect
+   (and (not (at ?airplane ?loc-from)) (at ?airplane ?loc-to)))
+)

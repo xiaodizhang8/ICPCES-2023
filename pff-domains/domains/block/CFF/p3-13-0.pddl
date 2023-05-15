@@ -1,0 +1,241 @@
+
+
+(define (problem BW-rand-13)
+(:domain blocksworld)
+(:objects b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 )
+(:init
+(on-table b4)
+(on b5 b4)
+(on b7 b5)
+(on b2 b7)
+(on b12 b2)
+(unknown (on b9 b12))
+(unknown (clear b9))
+(unknown (on b9 b10))
+(unknown (on b9 b13))
+(unknown (on b10 b12))
+(unknown (clear b10))
+(unknown (on b10 b9))
+(unknown (on b10 b13))
+(unknown (on b13 b12))
+(unknown (clear b13))
+(unknown (on b13 b9))
+(unknown (on b13 b10))
+(or
+(not (on b9 b10))
+(not (on b10 b9))
+)
+(or
+(not (on b9 b13))
+(not (on b13 b9))
+)
+(or
+(not (on b10 b9))
+(not (on b9 b10))
+)
+(or
+(not (on b10 b13))
+(not (on b13 b10))
+)
+(or
+(not (on b13 b9))
+(not (on b9 b13))
+)
+(or
+(not (on b13 b10))
+(not (on b10 b13))
+)
+(or
+(not (on b9 b10))
+(not (on b10 b13))
+(not (on b13 b9))
+)
+(or
+(not (on b9 b13))
+(not (on b13 b10))
+(not (on b10 b9))
+)
+(or
+(not (on b10 b9))
+(not (on b9 b13))
+(not (on b13 b10))
+)
+(or
+(not (on b10 b13))
+(not (on b13 b9))
+(not (on b9 b10))
+)
+(or
+(not (on b13 b9))
+(not (on b9 b10))
+(not (on b10 b13))
+)
+(or
+(not (on b13 b10))
+(not (on b10 b9))
+(not (on b9 b13))
+)
+(oneof
+(clear b9)
+(clear b10)
+(clear b13)
+)
+(oneof
+(on b9 b12)
+(on b10 b12)
+(on b13 b12)
+)
+(oneof
+(on b9 b12)
+(on b9 b10)
+(on b9 b13)
+)
+(oneof
+(on b10 b12)
+(on b10 b9)
+(on b10 b13)
+)
+(oneof
+(on b13 b12)
+(on b13 b9)
+(on b13 b10)
+)
+(oneof
+(clear b9)
+(on b10 b9)
+(on b13 b9)
+)
+(oneof
+(clear b10)
+(on b9 b10)
+(on b13 b10)
+)
+(oneof
+(clear b13)
+(on b9 b13)
+(on b10 b13)
+)
+(on-table b6)
+(on b3 b6)
+(unknown (on b11 b3))
+(unknown (clear b11))
+(unknown (on b11 b8))
+(unknown (on b11 b1))
+(unknown (on b8 b3))
+(unknown (clear b8))
+(unknown (on b8 b11))
+(unknown (on b8 b1))
+(unknown (on b1 b3))
+(unknown (clear b1))
+(unknown (on b1 b11))
+(unknown (on b1 b8))
+(or
+(not (on b11 b8))
+(not (on b8 b11))
+)
+(or
+(not (on b11 b1))
+(not (on b1 b11))
+)
+(or
+(not (on b8 b11))
+(not (on b11 b8))
+)
+(or
+(not (on b8 b1))
+(not (on b1 b8))
+)
+(or
+(not (on b1 b11))
+(not (on b11 b1))
+)
+(or
+(not (on b1 b8))
+(not (on b8 b1))
+)
+(or
+(not (on b11 b8))
+(not (on b8 b1))
+(not (on b1 b11))
+)
+(or
+(not (on b11 b1))
+(not (on b1 b8))
+(not (on b8 b11))
+)
+(or
+(not (on b8 b11))
+(not (on b11 b1))
+(not (on b1 b8))
+)
+(or
+(not (on b8 b1))
+(not (on b1 b11))
+(not (on b11 b8))
+)
+(or
+(not (on b1 b11))
+(not (on b11 b8))
+(not (on b8 b1))
+)
+(or
+(not (on b1 b8))
+(not (on b8 b11))
+(not (on b11 b1))
+)
+(oneof
+(clear b11)
+(clear b8)
+(clear b1)
+)
+(oneof
+(on b11 b3)
+(on b8 b3)
+(on b1 b3)
+)
+(oneof
+(on b11 b3)
+(on b11 b8)
+(on b11 b1)
+)
+(oneof
+(on b8 b3)
+(on b8 b11)
+(on b8 b1)
+)
+(oneof
+(on b1 b3)
+(on b1 b11)
+(on b1 b8)
+)
+(oneof
+(clear b11)
+(on b8 b11)
+(on b1 b11)
+)
+(oneof
+(clear b8)
+(on b11 b8)
+(on b1 b8)
+)
+(oneof
+(clear b1)
+(on b11 b1)
+(on b8 b1)
+)
+)
+(:goal
+(and
+(on b1 b7)
+(on b2 b10)
+(on b3 b5)
+(on b4 b6)
+(on b5 b11)
+(on b6 b1)
+(on b9 b13)
+(on b10 b12)
+(on b11 b4))
+)
+)
+
+

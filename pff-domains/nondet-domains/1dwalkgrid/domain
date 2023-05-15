@@ -1,0 +1,30 @@
+(define (domain onedgrid)
+  (:predicates (x-pos ?pos) 
+               (x-above ?phigh ?plow)
+  )
+
+  (:action up-x
+   :parameters ()
+   :effect (and 
+	     (forall (?phigh ?plow)
+                     (whenpc 0.8 (and (x-above ?phigh ?plow)
+                                       (x-pos ?plow))
+                           (and (x-pos ?phigh) (not (x-pos ?plow)))))
+	     (forall (?phigh ?plow)
+                     (whenpc 0.2 (and (x-above ?phigh ?plow)
+                                       (x-pos ?plow))
+                            (x-pos ?plow)))))
+
+  (:action down-x
+   :parameters ()
+   :effect (and 
+	     (forall (?phigh ?plow)
+                     (whenpc 0.8 (and (x-above ?phigh ?plow)
+                                       (x-pos ?phigh))
+                           (and (x-pos ?plow) (not (x-pos ?phigh)))))
+	     (forall (?phigh ?plow)
+                     (whenpc 0.2 (and (x-above ?phigh ?plow)
+                                       (x-pos ?phigh))
+                            (x-pos ?phigh)))))
+
+)

@@ -1,0 +1,24 @@
+(define (domain dice)
+
+(:predicates 
+(have1)
+(have2)
+(have3)
+(have4)
+(have5)
+(have6)
+)
+
+(:action throw
+:parameters ()
+:effect 
+(and 
+(whenp 0.16667 (have1))
+(whenp 0.16667 (have2))
+(whenp 0.16667 (have3))
+(whenp 0.16667 (have4))
+(whenp 0.16667 (have5))
+(whenp 0.16665 (have6))
+))
+
+)

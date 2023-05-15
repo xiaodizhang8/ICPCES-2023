@@ -1,0 +1,30 @@
+(define (domain ext-slippery-gripper)
+  (:requirements  :conditional-effects)
+  (:predicates (gripper-dry) (holding-block) (block-painted) (gripper-clean))
+
+  (:action pickup
+	   :effect (and (whenpc 0.95 (gripper-dry) (and (holding-block)))
+			(whenpc 0.05 (gripper-dry) (and))
+			(whenpc 0.5 (not (gripper-dry)) (and (holding-block)))
+			(whenpc 0.5 (not (gripper-dry)) (and))
+                   )
+  )
+
+  (:action dry
+	   :effect (and
+		     (whenp 0.8 (and (gripper-dry)))
+		     (whenp 0.2 (and))
+		   )
+  )
+
+  (:action paint
+	   :effect (and 
+			(whenpc 0.1 (not (holding-block))
+			  (and (not (gripper-clean)) (block-painted)))
+		        (whenpc 0.9 (not (holding-block))
+			  (and (block-painted)))
+			(when (and (holding-block))
+			  (and (not (gripper-clean)) (block-painted)))
+		   )
+  )
+)

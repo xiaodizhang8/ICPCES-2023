@@ -1,0 +1,108 @@
+#!/bin/bash
+
+
+#########################################################
+#
+#########################################################
+
+
+
+
+p=25
+while [ $p -le 100 ]; do
+
+    ./GENERATOR/safe -p $p -n 5 -d 0 > uni-5-${p}
+
+  p=$[$p+25];
+done
+
+
+p=25
+while [ $p -le 100 ]; do
+
+    ./GENERATOR/safe -p $p -n 10 -d 0 > uni-10-${p}
+
+  p=$[$p+25];
+done
+
+p=25
+while [ $p -le 100 ]; do
+
+    ./GENERATOR/safe -p $p -n 30 -d 0 > uni-30-${p}
+
+  p=$[$p+25];
+done
+
+p=25
+while [ $p -le 100 ]; do
+
+    ./GENERATOR/safe -p $p -n 50 -d 0 > uni-50-${p}
+
+  p=$[$p+25];
+done
+
+p=25
+while [ $p -le 100 ]; do
+
+    ./GENERATOR/safe -p $p -n 70 -d 0 > uni-70-${p}
+
+  p=$[$p+25];
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+p=25
+while [ $p -le 100 ]; do
+
+    ./GENERATOR/safe -p $p -n 5 -d 1 > cub-5-${p}
+
+  p=$[$p+25];
+done
+
+
+p=25
+while [ $p -le 100 ]; do
+
+    ./GENERATOR/safe -p $p -n 10 -d 1 > cub-10-${p}
+
+  p=$[$p+25];
+done
+
+p=25
+while [ $p -le 100 ]; do
+
+    ./GENERATOR/safe -p $p -n 30 -d 1 > cub-30-${p}
+
+  p=$[$p+25];
+done
+
+p=25
+while [ $p -le 100 ]; do
+
+    ./GENERATOR/safe -p $p -n 50 -d 1 > cub-50-${p}
+
+  p=$[$p+25];
+done
+
+p=25
+while [ $p -le 100 ]; do
+
+    ./GENERATOR/safe -p $p -n 70 -d 1 > cub-70-${p}
+
+  p=$[$p+25];
+done
+
+
+
+
+

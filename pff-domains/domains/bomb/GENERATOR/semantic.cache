@@ -1,0 +1,16 @@
+;; Object GENERATOR/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "GENERATOR/"
+  :tables (list 
+   (semanticdb-table "bomb.c"
+    :major-mode 'c-mode
+    :tags '(("stdlib.h" include (:system-flag t) nil [666 685]) ("stdio.h" include (:system-flag t) nil [686 704]) ("sys/timeb.h" include (:system-flag t) nil [705 727]) ("Bool" type (:typedef ("unsigned char") :superclasses "unsigned char" :type "typedef") nil [769 796]) ("TRUE" variable (:constant-flag t :default-value (nil)) nil [797 811]) ("FALSE" variable (:constant-flag t :default-value (nil)) nil [812 827]) ("usage" function (:prototype-flag t :arguments (("" variable (:type "void") (reparse-symbol arg-sub-list) [880 886])) :type "void") nil [868 887]) ("process_command_line" function (:prototype-flag t :arguments (("argc" variable (:type "int") (reparse-symbol arg-sub-list) [915 924]) ("argv" variable (:pointer 1 :dereference 1 :type "char") (reparse-symbol arg-sub-list) [925 939])) :type ("Bool" type (:type "class") nil nil)) nil [888 940]) ("gbombs" variable (:type "int") nil [988 1017]) ("gtoilets" variable (:type "int") nil [988 1017]) ("gd" variable (:type "int") nil [988 1017]) ("gp" variable (:type "int") nil [988 1017]) ("gprobability" variable (:pointer 1 :type "int") nil [1021 1039]) ("set_gprobability" function (:prototype-flag t :arguments (("" variable (:type "void") (reparse-symbol arg-sub-list) [1064 1070])) :type "void") nil [1041 1071]) ("main" function (:arguments (("argc" variable (:type "int") (reparse-symbol arg-sub-list) [1084 1093]) ("argv" variable (:pointer 1 :dereference 1 :type "char") (reparse-symbol arg-sub-list) [1094 1108])) :type "int") nil [1074 2439]) ("set_gprobability" function (:arguments (("" variable (:type "void") (reparse-symbol arg-sub-list) [2522 2528])) :type "void") nil [2499 3639]) ("usage" function (:arguments (("" variable (:type "void") (reparse-symbol arg-sub-list) [3748 3754])) :type "void") nil [3736 4110]) ("process_command_line" function (:arguments (("argc" variable (:type "int") (reparse-symbol arg-sub-list) [4141 4150]) ("argv" variable (:pointer 1 :dereference 1 :type "char") (reparse-symbol arg-sub-list) [4151 4165])) :type ("Bool" type (:type "class") nil nil)) nil [4114 4843]))
+    :file "bomb.c"
+    :pointmax 4845
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0beta3"
+  :semanticdb-version "2.0beta3"
+  )

@@ -1,0 +1,45 @@
+(define (domain dice)
+
+(:predicates 
+(have1)
+(have2)
+(have3)
+(have4)
+(have5)
+(have6)
+
+(fake ?dice)
+)
+
+(:action throw
+:parameters (?dice)
+:effect 
+(and 
+(whenpc 0.16667 (not (fake ?dice)) (have1))
+(whenpc 0.16667 (not (fake ?dice)) (have2))
+(whenpc 0.16667 (not (fake ?dice)) (have3))
+(whenpc 0.16667 (not (fake ?dice)) (have4))
+(whenpc 0.16667 (not (fake ?dice)) (have5))
+(whenpc 0.16665 (not (fake ?dice)) (have6))
+
+(whenpc 0.1 (fake ?dice) (have1))
+(whenpc 0.1 (fake ?dice) (have2))
+(whenpc 0.1 (fake ?dice) (have3))
+(whenpc 0.1 (fake ?dice) (have4))
+(whenpc 0.1 (fake ?dice) (have5))
+(whenpc 0.5 (fake ?dice) (have6))
+))
+
+(:action fake
+:parameters (?dice)
+:precondition (not (fake ?dice))
+:effect (fake ?dice)
+)
+
+(:action unfake
+:parameters (?dice)
+:precondition (fake ?dice)
+:effect (not (fake ?dice))
+)
+
+)

@@ -1,0 +1,11 @@
+propagate support: fixed weight of pnode 0 (POS P3 P3) to 1.000000
+propagate support: fixed weight of pnode 5 (POS P3 P2) to 0.800000
+propagate support: fixed weight of pnode 17 (POS P3 P1) to 0.640000
+propagate support: fixed weight of pnode 18 (POS P2 P2) to 0.640000
+propagate support: fixed weight of pnode 30 (POS P2 P1) to 0.512000
+propagate support: fixed weight of pnode 31 (POS P1 P2) to 0.512000
+propagate support: fixed weight of pnode 32 ef 31 of UP-Y P1 to 0.051200
+propagate support: fixed weight of pnode 33 ef 68 of UP-X P1 to 0.409600
+propagate support: fixed weight of pnode 34 ef 32 of UP-Y P1 to 0.409600
+propagate support: fixed weight of pnode 35 ef 67 of UP-X P1 to 0.051200
+

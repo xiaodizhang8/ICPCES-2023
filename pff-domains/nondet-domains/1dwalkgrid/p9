@@ -1,0 +1,25 @@
+
+
+
+(define (problem onedgrid-9)
+(:domain onedgrid)
+(:objects p1 p2 p3 p4 p5 p6 p7 p8 p9 )
+(:init
+(x-above p2 p1)
+(x-above p3 p2)
+(x-above p4 p3)
+(x-above p5 p4)
+(x-above p6 p5)
+(x-above p7 p6)
+(x-above p8 p7)
+(x-above p9 p8)(x-pos p1)
+
+)
+(:goal 0.900000
+(and
+(x-pos p9)
+)
+)
+)
+
+

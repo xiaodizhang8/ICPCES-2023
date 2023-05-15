@@ -1,0 +1,17 @@
+(define (problem dice-6)
+(:domain dice)
+
+(:objects dice1 dice2)
+
+(:init
+(fake dice2)
+)
+
+(:goal 0.95
+(and
+(have6)
+))
+
+)
+
+

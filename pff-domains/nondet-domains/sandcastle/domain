@@ -1,0 +1,43 @@
+(define (domain sandcastle-strips)
+  (:requirements :strips) 
+  (:predicates 	(carmel) (moat)
+	       	(castle)
+  )
+ 
+  ; (:types )		; default object
+
+
+(:action DIG-MOAT
+  :parameters
+    (?moat)
+  :effect
+   (and
+     (whenp 0.5 (and (moat)))
+     (whenp 0.5 (and))
+   )
+ )
+
+ (:action ERECT-CASTLE
+   :parameters
+     (?moat ?castle)
+   :effect
+    (and
+      (whenpc 0.25 (and (moat) (castle))
+		   (and (not (moat))))
+      (whenpc 0.75 (and (moat) (castle))
+		   (and))
+
+      (whenpc 0.67  (and (moat) (not (castle)))
+		    (and (castle)))
+      (whenpc 0.165 (and (moat) (not (castle)))
+		    (and (not (moat))))
+      (whenpc 0.165 (and (moat) (not (castle)))
+		    (and))
+
+      (whenpc 0.25  (and (not (moat)) (not (castle)))
+		    (and (castle)))
+      (whenpc 0.75  (and (not (moat)) (not (castle)))
+		    (and))
+    )
+ )
+)

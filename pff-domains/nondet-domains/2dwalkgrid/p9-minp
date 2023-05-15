@@ -1,0 +1,29 @@
+
+
+
+(define (problem twodgrid-9)
+(:domain twodgrid)
+(:objects p1 p2 p3 p4 p5 p6 p7 p8 p9 )
+
+(:init
+(above p2 p1)
+(above p3 p2)
+(above p4 p3)
+(above p5 p4)
+(above p6 p5)
+(above p7 p6)
+(above p8 p7)
+(above p9 p8)
+
+(pos p1 p1)
+)
+
+(:goal 0.010000
+(and
+(pos p9 p9)
+)
+)
+)
+
+
+

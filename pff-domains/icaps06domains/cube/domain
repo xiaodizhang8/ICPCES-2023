@@ -1,0 +1,57 @@
+(define (domain cube)
+  (:predicates (x-pos ?pos) 
+               (y-pos ?pos) 
+               (z-pos ?pos)
+               (x-above ?phigh ?plow)
+               (y-above ?phigh ?plow)
+               (z-above ?phigh ?plow)
+  )
+
+  (:action up-x
+   :parameters ()
+   :effect (and 
+	     (forall (?phigh ?plow)
+                     (when (and (x-above ?phigh ?plow)
+                                (x-pos ?plow))
+                           (and (x-pos ?phigh) (not (x-pos ?plow)))))))
+
+  (:action down-x
+   :parameters ()
+   :effect (and 
+	     (forall (?phigh ?plow)
+                     (when (and (x-above ?phigh ?plow)
+                                (x-pos ?phigh))
+                           (and (x-pos ?plow) (not (x-pos ?phigh)))))))
+
+  (:action up-y
+   :parameters ()
+   :effect (and 
+	     (forall (?phigh ?plow)
+                     (when (and (y-above ?phigh ?plow)
+                                (y-pos ?plow))
+                           (and (y-pos ?phigh) (not (y-pos ?plow)))))))
+
+  (:action down-y
+   :parameters ()
+   :effect (and 
+	     (forall (?phigh ?plow)
+                     (when (and (y-above ?phigh ?plow)
+                                (y-pos ?phigh))
+                           (and (y-pos ?plow) (not (y-pos ?phigh)))))))
+
+  (:action up-z
+   :parameters ()
+   :effect (and 
+	     (forall (?phigh ?plow)
+                     (when (and (z-above ?phigh ?plow)
+                                (z-pos ?plow))
+                           (and (z-pos ?phigh) (not (z-pos ?plow)))))))
+
+  (:action down-z
+   :parameters ()
+   :effect (and 
+	     (forall (?phigh ?plow)
+                     (when (and (z-above ?phigh ?plow)
+                                (z-pos ?phigh))
+                           (and (z-pos ?plow) (not (z-pos ?phigh)))))))
+)

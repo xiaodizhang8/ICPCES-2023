@@ -1,0 +1,13 @@
+(define (problem dice-6)
+(:domain dice)
+
+(:objects dice1)
+
+(:goal 0.95
+(and
+(have6)
+))
+
+)
+
+

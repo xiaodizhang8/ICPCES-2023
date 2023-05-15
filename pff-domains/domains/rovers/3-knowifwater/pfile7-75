@@ -1,0 +1,238 @@
+(define (problem roverprob4123) (:domain Rover)
+(:objects
+	general - Lander
+	colour high_res low_res - Mode
+	rover0 rover1 rover2 - Rover
+	rover0store rover1store rover2store - Store
+	waypoint0 waypoint1 waypoint2 waypoint3 waypoint4 waypoint5 - Waypoint
+	camera0 camera1 - Camera
+	objective0 objective1 - Objective
+        rock1 rock2 rock3 rock4 - rocksample
+        soil1 soil2 - soilsample
+	)
+(:init
+	(visible waypoint0 waypoint3)
+	(visible waypoint3 waypoint0)
+	(visible waypoint0 waypoint5)
+	(visible waypoint5 waypoint0)
+	(visible waypoint1 waypoint0)
+	(visible waypoint0 waypoint1)
+	(visible waypoint2 waypoint0)
+	(visible waypoint0 waypoint2)
+	(visible waypoint2 waypoint1)
+	(visible waypoint1 waypoint2)
+	(visible waypoint2 waypoint5)
+	(visible waypoint5 waypoint2)
+	(visible waypoint3 waypoint2)
+	(visible waypoint2 waypoint3)
+	(visible waypoint4 waypoint0)
+	(visible waypoint0 waypoint4)
+	(visible waypoint4 waypoint3)
+	(visible waypoint3 waypoint4)
+	(visible waypoint5 waypoint1)
+	(visible waypoint1 waypoint5)
+	(visible waypoint5 waypoint4)
+	(visible waypoint4 waypoint5)
+
+(cpt (at_soil_sample soil1 waypoint1) 0.8)
+(cpt (at_soil_sample soil1 waypoint3) 0.1)
+(cpt (at_soil_sample soil1 waypoint5) 0.1)
+(multi
+(at_soil_sample soil1 waypoint1)
+(at_soil_sample soil1 waypoint3)
+(at_soil_sample soil1 waypoint5)
+)
+(cpt (wet soil1) 0.3
+(and (at_soil_sample soil1 waypoint1)))
+(cpt (wet soil1) 0.6
+(and (not (at_soil_sample soil1 waypoint1))))
+
+
+(cpt (at_rock_sample rock1 waypoint2) 0.8)
+(cpt (at_rock_sample rock1 waypoint5) 0.1)
+(cpt (at_rock_sample rock1 waypoint4) 0.1)
+(multi
+(at_rock_sample rock1 waypoint2)
+(at_rock_sample rock1 waypoint5)
+(at_rock_sample rock1 waypoint4)
+)
+
+(cpt (at_rock_sample rock2 waypoint3) 0.8)
+(cpt (at_rock_sample rock2 waypoint4) 0.1)
+(cpt (at_rock_sample rock2 waypoint0) 0.1)
+(multi
+(at_rock_sample rock2 waypoint3)
+(at_rock_sample rock2 waypoint4)
+(at_rock_sample rock2 waypoint0)
+)
+
+(cpt (at_soil_sample soil2 waypoint4) 0.8)
+(cpt (at_soil_sample soil2 waypoint0) 0.1)
+(cpt (at_soil_sample soil2 waypoint3) 0.1)
+(multi
+(at_soil_sample soil2 waypoint4)
+(at_soil_sample soil2 waypoint0)
+(at_soil_sample soil2 waypoint3)
+)
+(cpt (wet soil2) 0.5)
+
+(cpt (at_rock_sample rock3 waypoint4) 0.8)
+(cpt (at_rock_sample rock3 waypoint5) 0.1)
+(cpt (at_rock_sample rock3 waypoint3) 0.1)
+(multi
+(at_rock_sample rock3 waypoint4)
+(at_rock_sample rock3 waypoint5)
+(at_rock_sample rock3 waypoint3)
+)
+
+(cpt (at_rock_sample rock4 waypoint5) 0.8)
+(cpt (at_rock_sample rock4 waypoint2) 0.1)
+(cpt (at_rock_sample rock4 waypoint0) 0.1)
+(multi
+(at_rock_sample rock4 waypoint5)
+(at_rock_sample rock4 waypoint2)
+(at_rock_sample rock4 waypoint0)
+)
+
+	(at_lander general waypoint3)
+	(channel_free general)
+	(at rover0 waypoint2)
+	(available rover0)
+	(store_of rover0store rover0)
+	(empty rover0store)
+	(equipped_for_soil_analysis rover0)
+	(equipped_for_rock_analysis rover0)
+	(equipped_for_imaging rover0)
+	(can_traverse rover0 waypoint2 waypoint0)
+	(can_traverse rover0 waypoint0 waypoint2)
+	(can_traverse rover0 waypoint2 waypoint1)
+	(can_traverse rover0 waypoint1 waypoint2)
+	(can_traverse rover0 waypoint2 waypoint3)
+	(can_traverse rover0 waypoint3 waypoint2)
+	(can_traverse rover0 waypoint2 waypoint5)
+	(can_traverse rover0 waypoint5 waypoint2)
+	(can_traverse rover0 waypoint0 waypoint4)
+	(can_traverse rover0 waypoint4 waypoint0)
+	(at rover1 waypoint3)
+	(available rover1)
+	(store_of rover1store rover1)
+	(empty rover1store)
+	(equipped_for_rock_analysis rover1)
+	(can_traverse rover1 waypoint3 waypoint0)
+	(can_traverse rover1 waypoint0 waypoint3)
+	(can_traverse rover1 waypoint3 waypoint2)
+	(can_traverse rover1 waypoint2 waypoint3)
+	(can_traverse rover1 waypoint3 waypoint4)
+	(can_traverse rover1 waypoint4 waypoint3)
+	(can_traverse rover1 waypoint0 waypoint1)
+	(can_traverse rover1 waypoint1 waypoint0)
+	(can_traverse rover1 waypoint0 waypoint5)
+	(can_traverse rover1 waypoint5 waypoint0)
+	(at rover2 waypoint4)
+	(available rover2)
+	(store_of rover2store rover2)
+	(empty rover2store)
+	(equipped_for_soil_analysis rover2)
+	(equipped_for_rock_analysis rover2)
+	(equipped_for_imaging rover2)
+	(can_traverse rover2 waypoint4 waypoint0)
+	(can_traverse rover2 waypoint0 waypoint4)
+	(can_traverse rover2 waypoint4 waypoint5)
+	(can_traverse rover2 waypoint5 waypoint4)
+	(can_traverse rover2 waypoint0 waypoint1)
+	(can_traverse rover2 waypoint1 waypoint0)
+	(can_traverse rover2 waypoint0 waypoint3)
+	(can_traverse rover2 waypoint3 waypoint0)
+	(can_traverse rover2 waypoint5 waypoint2)
+	(can_traverse rover2 waypoint2 waypoint5)
+	(on_board camera0 rover0)
+	(calibration_target camera0 objective0)
+	(supports camera0 colour)
+	(supports camera0 high_res)
+	(on_board camera1 rover2)
+	(calibration_target camera1 objective1)
+	(supports camera1 high_res)
+
+(cpt (visible_from objective0 waypoint3) 0.1
+     (and (at_rock_sample rock1 waypoint5) (at_rock_sample rock2 waypoint3)))
+(cpt (visible_from objective0 waypoint3) 0.1
+     (and (not (at_rock_sample rock1 waypoint5)) (at_rock_sample rock2 waypoint3)))
+(cpt (visible_from objective0 waypoint3) 0.45
+     (and (at_rock_sample rock1 waypoint5) (not (at_rock_sample rock2 waypoint3))))
+(cpt (visible_from objective0 waypoint3) 0.33
+     (and (not (at_rock_sample rock1 waypoint5)) (not (at_rock_sample rock2 waypoint3))))
+
+(cpt (visible_from objective0 waypoint1) 0.8
+     (and (at_rock_sample rock1 waypoint5) (at_rock_sample rock2 waypoint3)))
+(cpt (visible_from objective0 waypoint1) 0.45
+     (and (not (at_rock_sample rock1 waypoint5)) (at_rock_sample rock2 waypoint3)))
+(cpt (visible_from objective0 waypoint1) 0.45
+     (and (at_rock_sample rock1 waypoint5) (not (at_rock_sample rock2 waypoint3))))
+(cpt (visible_from objective0 waypoint1) 0.33
+     (and (not (at_rock_sample rock1 waypoint5)) (not (at_rock_sample rock2 waypoint3))))
+
+(cpt (visible_from objective0 waypoint5) 0.1
+     (and (at_rock_sample rock1 waypoint5) (at_rock_sample rock2 waypoint3)))
+(cpt (visible_from objective0 waypoint5) 0.45
+     (and (not (at_rock_sample rock1 waypoint5)) (at_rock_sample rock2 waypoint3)))
+(cpt (visible_from objective0 waypoint5) 0.1
+     (and (at_rock_sample rock1 waypoint5) (not (at_rock_sample rock2 waypoint3))))
+(cpt (visible_from objective0 waypoint5) 0.34
+     (and (not (at_rock_sample rock1 waypoint5)) (not (at_rock_sample rock2 waypoint3))))
+
+(multi
+(visible_from objective0 waypoint3) 
+(visible_from objective0 waypoint1) 
+(visible_from objective0 waypoint5) 
+)
+
+
+
+
+
+(cpt (visible_from objective1 waypoint0) 0.1
+     (and (at_rock_sample rock1 waypoint2) (at_rock_sample rock2 waypoint0)))
+(cpt (visible_from objective1 waypoint0) 0.1
+     (and (not (at_rock_sample rock1 waypoint2)) (at_rock_sample rock2 waypoint0)))
+(cpt (visible_from objective1 waypoint0) 0.45
+     (and (at_rock_sample rock1 waypoint2) (not (at_rock_sample rock2 waypoint0))))
+(cpt (visible_from objective1 waypoint0) 0.33
+     (and (not (at_rock_sample rock1 waypoint2)) (not (at_rock_sample rock2 waypoint0))))
+
+(cpt (visible_from objective1 waypoint2) 0.1
+     (and (at_rock_sample rock1 waypoint2) (at_rock_sample rock2 waypoint0)))
+(cpt (visible_from objective1 waypoint2) 0.45
+     (and (not (at_rock_sample rock1 waypoint2)) (at_rock_sample rock2 waypoint0)))
+(cpt (visible_from objective1 waypoint2) 0.1
+     (and (at_rock_sample rock1 waypoint2) (not (at_rock_sample rock2 waypoint0))))
+(cpt (visible_from objective1 waypoint2) 0.33
+     (and (not (at_rock_sample rock1 waypoint2)) (not (at_rock_sample rock2 waypoint0))))
+
+(cpt (visible_from objective1 waypoint1) 0.8
+     (and (at_rock_sample rock1 waypoint2) (at_rock_sample rock2 waypoint0)))
+(cpt (visible_from objective1 waypoint1) 0.45
+     (and (not (at_rock_sample rock1 waypoint2)) (at_rock_sample rock2 waypoint0)))
+(cpt (visible_from objective1 waypoint1) 0.45
+     (and (at_rock_sample rock1 waypoint2) (not (at_rock_sample rock2 waypoint0))))
+(cpt (visible_from objective1 waypoint1) 0.34
+     (and (not (at_rock_sample rock1 waypoint2)) (not (at_rock_sample rock2 waypoint0))))
+(multi
+(visible_from objective1 waypoint0) 
+(visible_from objective1 waypoint2) 
+(visible_from objective1 waypoint1) 
+)
+
+)
+
+(:goal 0.75
+(and
+(communicated_soil_data soil2)
+(communicated_soil_data soil1)
+(communicated_rock_data rock2)
+(communicated_rock_data rock1)
+(communicated_rock_data rock3)
+(communicated_image_data objective0 high_res)
+(know-if-water)
+)
+)
+)

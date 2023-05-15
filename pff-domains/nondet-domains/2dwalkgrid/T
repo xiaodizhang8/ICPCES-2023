@@ -1,0 +1,241 @@
+Pr i at t 3: (POS P2 P3)
+fixed weight of pnode 6 (POS P2 P3)at t 3 to 0.800000
+Pr main loop initialized fathers of pnode 12,  ef 26 of UP-Y P2 at t 3, to father pnode 6, (POS P2 P3)
+Pr new prob pnode 12, ef 26 Utime 2 of op UP-Y P2 (by probnode edge)
+initialized weight of pnode 12 ef 26 of UP-Y P2at t 3 to 0.200000
+Pr main loop initialized fathers of pnode 13,  ef 52 of DOWN-X P2 at t 3, to father pnode 6, (POS P2 P3)
+Pr new prob pnode 13, ef 52 Utime 2 of op DOWN-X P2 (by probnode edge)
+initialized weight of pnode 13 ef 52 of DOWN-X P2at t 3 to 0.200000
+Pr main loop initialized fathers of pnode 14,  ef 61 of UP-X P2 at t 3, to father pnode 6, (POS P2 P3)
+Pr new prob pnode 14, ef 61 Utime 2 of op UP-X P2 (by probnode edge)
+initialized weight of pnode 14 ef 61 of UP-X P2at t 3 to 0.200000
+Pr main loop initialized fathers of pnode 15,  ef 4 of DOWN-Y P3 at t 3, to father pnode 6, (POS P2 P3)
+Pr new prob pnode 15, ef 4 Utime 2 of op DOWN-Y P3 (by probnode edge)
+initialized weight of pnode 15 ef 4 of DOWN-Y P3at t 3 to 0.200000
+Pr main loop initialized fathers of pnode 16,  ef 65 of UP-X P1 at t 3, to father pnode 6, (POS P2 P3)
+Pr new prob pnode 16, ef 65 Utime 2 of op UP-X P1 (by probnode edge)
+initialized weight of pnode 16 ef 65 of UP-X P1at t 3 to 0.200000
+Pr 1st CPloop now doing pnode 7 ef 29 of UP-Y P1
+1st CPloop fixed weight of pnode 7, ef 29 of UP-Y P1at t 3 to 0.640000
+Pr 1st CPloop new pnode 17 p: (POS P3 P1) weight 1.000000 coming from ef 29 of UP-Y P1
+Pr 1st CPloop now doing pnode 8 ef 40 of DOWN-X P3
+1st CPloop fixed weight of pnode 8, ef 40 of DOWN-X P3at t 3 to 0.080000
+Pr 1st CPloop now doing pnode 9 ef 16 of DOWN-Y P2
+1st CPloop fixed weight of pnode 9, ef 16 of DOWN-Y P2at t 3 to 0.080000
+Pr 1st CPloop new pnode 18 p: (POS P2 P2) weight 1.000000 coming from ef 16 of DOWN-Y P2
+Pr 1st CPloop now doing pnode 10 ef 25 of UP-Y P2
+1st CPloop fixed weight of pnode 10, ef 25 of UP-Y P2at t 3 to 0.080000
+Pr 1st CPloop now doing pnode 11 ef 62 of UP-X P2
+1st CPloop fixed weight of pnode 11, ef 62 of UP-X P2at t 3 to 0.640000
+Pr 1st CPloop now doing pnode 12 ef 26 of UP-Y P2
+1st CPloop fixed weight of pnode 12, ef 26 of UP-Y P2at t 3 to 0.640000
+Pr 1st CPloop now doing pnode 13 ef 52 of DOWN-X P2
+1st CPloop fixed weight of pnode 13, ef 52 of DOWN-X P2at t 3 to 0.080000
+Pr 1st CPloop now doing pnode 14 ef 61 of UP-X P2
+1st CPloop fixed weight of pnode 14, ef 61 of UP-X P2at t 3 to 0.080000
+Pr 1st CPloop now doing pnode 15 ef 4 of DOWN-Y P3
+1st CPloop fixed weight of pnode 15, ef 4 of DOWN-Y P3at t 3 to 0.080000
+Pr 1st CPloop new pnode 19 p: (POS P1 P3) weight 1.000000 coming from ef 4 of DOWN-Y P3
+Pr 1st CPloop now doing pnode 16 ef 65 of UP-X P1
+1st CPloop fixed weight of pnode 16, ef 65 of UP-X P1at t 3 to 0.640000
+Pr 2nd CPloop skipping pnode 7, ef 29 of UP-Y P1 at t 3
+Pr 2nd CPloop skipping pnode 8, ef 40 of DOWN-X P3 at t 3
+Pr 2nd CPloop skipping pnode 9, ef 16 of DOWN-Y P2 at t 3
+Pr 2nd CPloop skipping pnode 10, ef 25 of UP-Y P2 at t 3
+Pr 2nd CPloop skipping pnode 11, ef 62 of UP-X P2 at t 3
+Pr 2nd CPloop skipping pnode 12, ef 26 of UP-Y P2 at t 3
+Pr 2nd CPloop skipping pnode 13, ef 52 of DOWN-X P2 at t 3
+Pr 2nd CPloop skipping pnode 14, ef 61 of UP-X P2 at t 3
+Pr 2nd CPloop skipping pnode 15, ef 4 of DOWN-Y P3 at t 3
+Pr 2nd CPloop skipping pnode 16, ef 65 of UP-X P1 at t 3
+Pr 2nd CPloop now doing pnode 17 fact (POS P3 P1)
+Pr 2nd CPloop inserted MAXPEF father of pnode 17, (POS P3 P1) at t 3, father pnode is 7, ef 29 of UP-Y P1
+2nd CPloop MAXPEF updating weight of pnode 17 (POS P3 P1) at t 3 to 0.200000
+Pr 2nd CPloop now doing pnode 18 fact (POS P2 P2)
+Pr 2nd CPloop inserted MAXPEF father of pnode 18, (POS P2 P2) at t 3, father pnode is 11, ef 62 of UP-X P2
+2nd CPloop MAXPEF updating weight of pnode 18 (POS P2 P2) at t 3 to 0.200000
+Pr 2nd CPloop now doing pnode 19 fact (POS P1 P3)
+Pr 2nd CPloop inserted MAXPEF father of pnode 19, (POS P1 P3) at t 3, father pnode is 16, ef 65 of UP-X P1
+2nd CPloop MAXPEF updating weight of pnode 19 (POS P1 P3) at t 3 to 0.200000
+ef 29 of UP-Y P1 at t 2
+skipping ef 29 of UP-Y P1 at t 2
+ef 40 of DOWN-X P3 at t 2
+skipping ef 40 of DOWN-X P3 at t 2
+ef 16 of DOWN-Y P2 at t 2
+skipping ef 16 of DOWN-Y P2 at t 2
+ef 25 of UP-Y P2 at t 2
+skipping ef 25 of UP-Y P2 at t 2
+ef 62 of UP-X P2 at t 2
+skipping ef 62 of UP-X P2 at t 2
+ef 26 of UP-Y P2 at t 2
+skipping ef 26 of UP-Y P2 at t 2
+ef 52 of DOWN-X P2 at t 2
+skipping ef 52 of DOWN-X P2 at t 2
+ef 61 of UP-X P2 at t 2
+skipping ef 61 of UP-X P2 at t 2
+ef 4 of DOWN-Y P3 at t 2
+skipping ef 4 of DOWN-Y P3 at t 2
+ef 65 of UP-X P1 at t 2
+skipping ef 65 of UP-X P1 at t 2
+Pr i at t 2: (POS P3 P1)
+fixed weight of pnode 17 (POS P3 P1)at t 2 to 0.800000
+Pr main loop initialized fathers of pnode 20,  ef 34 of UP-Y P1 at t 2, to father pnode 17, (POS P3 P1)
+Pr new prob pnode 20, ef 34 Utime 1 of op UP-Y P1 (by probnode edge)
+initialized weight of pnode 20 ef 34 of UP-Y P1at t 2 to 0.200000
+Pr main loop initialized fathers of pnode 21,  ef 59 of UP-X P2 at t 2, to father pnode 17, (POS P3 P1)
+Pr new prob pnode 21, ef 59 Utime 1 of op UP-X P2 (by probnode edge)
+initialized weight of pnode 21 ef 59 of UP-X P2at t 2 to 0.200000
+Pr i at t 2: (POS P2 P2)
+fixed weight of pnode 18 (POS P2 P2)at t 2 to 0.800000
+Pr main loop initialized fathers of pnode 22,  ef 35 of UP-Y P1 at t 2, to father pnode 18, (POS P2 P2)
+Pr new prob pnode 22, ef 35 Utime 1 of op UP-Y P1 (by probnode edge)
+initialized weight of pnode 22 ef 35 of UP-Y P1at t 2 to 0.200000
+Pr main loop initialized fathers of pnode 23,  ef 49 of DOWN-X P2 at t 2, to father pnode 18, (POS P2 P2)
+Pr new prob pnode 23, ef 49 Utime 1 of op DOWN-X P2 (by probnode edge)
+initialized weight of pnode 23 ef 49 of DOWN-X P2at t 2 to 0.200000
+Pr main loop initialized fathers of pnode 24,  ef 58 of UP-X P2 at t 2, to father pnode 18, (POS P2 P2)
+Pr new prob pnode 24, ef 58 Utime 1 of op UP-X P2 (by probnode edge)
+initialized weight of pnode 24 ef 58 of UP-X P2at t 2 to 0.200000
+Pr main loop initialized fathers of pnode 25,  ef 13 of DOWN-Y P2 at t 2, to father pnode 18, (POS P2 P2)
+Pr new prob pnode 25, ef 13 Utime 1 of op DOWN-Y P2 (by probnode edge)
+initialized weight of pnode 25 ef 13 of DOWN-Y P2at t 2 to 0.200000
+Pr main loop initialized fathers of pnode 26,  ef 22 of UP-Y P2 at t 2, to father pnode 18, (POS P2 P2)
+Pr new prob pnode 26, ef 22 Utime 1 of op UP-Y P2 (by probnode edge)
+initialized weight of pnode 26 ef 22 of UP-Y P2at t 2 to 0.200000
+Pr main loop initialized fathers of pnode 27,  ef 71 of UP-X P1 at t 2, to father pnode 18, (POS P2 P2)
+Pr new prob pnode 27, ef 71 Utime 1 of op UP-X P1 (by probnode edge)
+initialized weight of pnode 27 ef 71 of UP-X P1at t 2 to 0.200000
+Pr i at t 2: (POS P1 P3)
+fixed weight of pnode 19 (POS P1 P3)at t 2 to 0.800000
+Pr main loop initialized fathers of pnode 28,  ef 23 of UP-Y P2 at t 2, to father pnode 19, (POS P1 P3)
+Pr new prob pnode 28, ef 23 Utime 1 of op UP-Y P2 (by probnode edge)
+initialized weight of pnode 28 ef 23 of UP-Y P2at t 2 to 0.200000
+Pr main loop initialized fathers of pnode 29,  ef 70 of UP-X P1 at t 2, to father pnode 19, (POS P1 P3)
+Pr new prob pnode 29, ef 70 Utime 1 of op UP-X P1 (by probnode edge)
+initialized weight of pnode 29 ef 70 of UP-X P1at t 2 to 0.200000
+Pr 1st CPloop now doing pnode 20 ef 34 of UP-Y P1
+1st CPloop fixed weight of pnode 20, ef 34 of UP-Y P1at t 2 to 0.080000
+Pr 1st CPloop new pnode 30 p: (POS P2 P1) weight 1.000000 coming from ef 34 of UP-Y P1
+Pr 1st CPloop now doing pnode 21 ef 59 of UP-X P2
+1st CPloop fixed weight of pnode 21, ef 59 of UP-X P2at t 2 to 0.640000
+Pr 1st CPloop now doing pnode 22 ef 35 of UP-Y P1
+1st CPloop fixed weight of pnode 22, ef 35 of UP-Y P1at t 2 to 0.640000
+Pr 1st CPloop now doing pnode 23 ef 49 of DOWN-X P2
+1st CPloop fixed weight of pnode 23, ef 49 of DOWN-X P2at t 2 to 0.080000
+Pr 1st CPloop now doing pnode 24 ef 58 of UP-X P2
+1st CPloop fixed weight of pnode 24, ef 58 of UP-X P2at t 2 to 0.080000
+Pr 1st CPloop now doing pnode 25 ef 13 of DOWN-Y P2
+1st CPloop fixed weight of pnode 25, ef 13 of DOWN-Y P2at t 2 to 0.080000
+Pr 1st CPloop new pnode 31 p: (POS P1 P2) weight 1.000000 coming from ef 13 of DOWN-Y P2
+Pr 1st CPloop now doing pnode 26 ef 22 of UP-Y P2
+1st CPloop fixed weight of pnode 26, ef 22 of UP-Y P2at t 2 to 0.080000
+Pr 1st CPloop now doing pnode 27 ef 71 of UP-X P1
+1st CPloop fixed weight of pnode 27, ef 71 of UP-X P1at t 2 to 0.640000
+Pr 1st CPloop now doing pnode 28 ef 23 of UP-Y P2
+1st CPloop fixed weight of pnode 28, ef 23 of UP-Y P2at t 2 to 0.640000
+Pr 1st CPloop now doing pnode 29 ef 70 of UP-X P1
+1st CPloop fixed weight of pnode 29, ef 70 of UP-X P1at t 2 to 0.080000
+Pr 2nd CPloop skipping pnode 20, ef 34 of UP-Y P1 at t 2
+Pr 2nd CPloop skipping pnode 21, ef 59 of UP-X P2 at t 2
+Pr 2nd CPloop skipping pnode 22, ef 35 of UP-Y P1 at t 2
+Pr 2nd CPloop skipping pnode 23, ef 49 of DOWN-X P2 at t 2
+Pr 2nd CPloop skipping pnode 24, ef 58 of UP-X P2 at t 2
+Pr 2nd CPloop skipping pnode 25, ef 13 of DOWN-Y P2 at t 2
+Pr 2nd CPloop skipping pnode 26, ef 22 of UP-Y P2 at t 2
+Pr 2nd CPloop skipping pnode 27, ef 71 of UP-X P1 at t 2
+Pr 2nd CPloop skipping pnode 28, ef 23 of UP-Y P2 at t 2
+Pr 2nd CPloop skipping pnode 29, ef 70 of UP-X P1 at t 2
+Pr 2nd CPloop now doing pnode 30 fact (POS P2 P1)
+Pr 2nd CPloop inserted MAXPEF father of pnode 30, (POS P2 P1) at t 2, father pnode is 21, ef 59 of UP-X P2
+2nd CPloop MAXPEF updating weight of pnode 30 (POS P2 P1) at t 2 to 0.200000
+Pr 2nd CPloop now doing pnode 31 fact (POS P1 P2)
+Pr 2nd CPloop inserted MAXPEF father of pnode 31, (POS P1 P2) at t 2, father pnode is 27, ef 71 of UP-X P1
+2nd CPloop MAXPEF updating weight of pnode 31 (POS P1 P2) at t 2 to 0.200000
+ef 34 of UP-Y P1 at t 1
+skipping ef 34 of UP-Y P1 at t 1
+ef 59 of UP-X P2 at t 1
+skipping ef 59 of UP-X P2 at t 1
+ef 35 of UP-Y P1 at t 1
+skipping ef 35 of UP-Y P1 at t 1
+ef 49 of DOWN-X P2 at t 1
+skipping ef 49 of DOWN-X P2 at t 1
+ef 58 of UP-X P2 at t 1
+skipping ef 58 of UP-X P2 at t 1
+ef 13 of DOWN-Y P2 at t 1
+skipping ef 13 of DOWN-Y P2 at t 1
+ef 22 of UP-Y P2 at t 1
+skipping ef 22 of UP-Y P2 at t 1
+ef 71 of UP-X P1 at t 1
+skipping ef 71 of UP-X P1 at t 1
+ef 23 of UP-Y P2 at t 1
+skipping ef 23 of UP-Y P2 at t 1
+ef 70 of UP-X P1 at t 1
+skipping ef 70 of UP-X P1 at t 1
+Pr i at t 1: (POS P2 P1)
+fixed weight of pnode 30 (POS P2 P1)at t 1 to 0.800000
+Pr main loop initialized fathers of pnode 32,  ef 31 of UP-Y P1 at t 1, to father pnode 30, (POS P2 P1)
+Pr new prob pnode 32, ef 31 Utime 0 of op UP-Y P1 (by probnode edge)
+initialized weight of pnode 32 ef 31 of UP-Y P1at t 1 to 0.200000
+include into probleafs at t 1 ef 31 of UP-Y P1at t 1, pnode 32 Utime 0
+IN pnode: include into probleafs at t 1 ef 31 of UP-Y P1at t 1, pnode 32 Utime 0
+Pr main loop initialized fathers of pnode 33,  ef 68 of UP-X P1 at t 1, to father pnode 30, (POS P2 P1)
+Pr new prob pnode 33, ef 68 Utime 0 of op UP-X P1 (by probnode edge)
+initialized weight of pnode 33 ef 68 of UP-X P1at t 1 to 0.200000
+include into probleafs at t 1 ef 68 of UP-X P1at t 1, pnode 33 Utime 0
+IN pnode: include into probleafs at t 1 ef 68 of UP-X P1at t 1, pnode 33 Utime 0
+Pr i at t 1: (POS P1 P2)
+fixed weight of pnode 31 (POS P1 P2)at t 1 to 0.800000
+Pr main loop initialized fathers of pnode 34,  ef 32 of UP-Y P1 at t 1, to father pnode 31, (POS P1 P2)
+Pr new prob pnode 34, ef 32 Utime 0 of op UP-Y P1 (by probnode edge)
+initialized weight of pnode 34 ef 32 of UP-Y P1at t 1 to 0.200000
+include into probleafs at t 1 ef 32 of UP-Y P1at t 1, pnode 34 Utime 0
+IN pnode: include into probleafs at t 1 ef 32 of UP-Y P1at t 1, pnode 34 Utime 0
+Pr main loop initialized fathers of pnode 35,  ef 67 of UP-X P1 at t 1, to father pnode 31, (POS P1 P2)
+Pr new prob pnode 35, ef 67 Utime 0 of op UP-X P1 (by probnode edge)
+initialized weight of pnode 35 ef 67 of UP-X P1at t 1 to 0.200000
+include into probleafs at t 1 ef 67 of UP-X P1at t 1, pnode 35 Utime 0
+IN pnode: include into probleafs at t 1 ef 67 of UP-X P1at t 1, pnode 35 Utime 0
+Pr 2nd CPloop skipping pnode 32, ef 31 of UP-Y P1 at t 1
+Pr 2nd CPloop skipping pnode 33, ef 68 of UP-X P1 at t 1
+Pr 2nd CPloop skipping pnode 34, ef 32 of UP-Y P1 at t 1
+Pr 2nd CPloop skipping pnode 35, ef 67 of UP-X P1 at t 1
+post-fix-loop-probleafs: fixed weight of probleaf pnode 32 ef 31 of UP-Y P1 to 0.080000
+post-fix-loop-probleafs: fixed weight of probleaf pnode 33 ef 68 of UP-X P1 to 0.640000
+post-fix-loop-probleafs: fixed weight of probleaf pnode 34 ef 32 of UP-Y P1 to 0.640000
+post-fix-loop-probleafs: fixed weight of probleaf pnode 35 ef 67 of UP-X P1 to 0.080000
+Pr goal fact (POS P3 P3) has leafs: and noncond prob leafs: (ef 31 at Utime 0 of action UP-Y P1 weight 0.080000) (ef 68 at Utime 0 of action UP-X P1 weight 0.640000) (ef 32 at Utime 0 of action UP-Y P1 weight 0.640000) (ef 67 at Utime 0 of action UP-X P1 weight 0.080000) giving the aggregated weight 0.921600
+r now checking for support by initial/state formula.
+indimulti wanted? 1 possible? 1 gprob: 0.921600
+r only-probleafs treatment applies, computed P 0.921600 -- high enough!
+time 4, P test succeeded!
+
+----------------------------relaxed plan graph
+
+LEVEL 0:
+
+FACTS:
+(NOT-POS P3 P3)
+(NOT-POS P2 P3)
+(NOT-POS P3 P1)
+(NOT-POS P3 P2)
+(NOT-POS P1 P3)
+(NOT-POS P1 P2)
+(NOT-POS P2 P1)
+(NOT-POS P2 P2)
+(POS P1 P1)
+
+EFS:
+effect 30 to UP-Y P1
+effect 31 to UP-Y P1
+effect 32 to UP-Y P1
+effect 66 to UP-X P1
+effect 67 to UP-X P1
+effect 68 to UP-X P1
+
+LEVEL 1:
+
+UNKNOWN FACTS (Utime 1):
+(NOT-POS P1 P1), edges to: (prob node, ef 31 Utime 0 of op UP-Y P1) (by probnode edge), (prob node, ef 32 Utime 0 of op UP-Y P1) (by probnode edge), (prob node, ef 67 Utime 0 of op UP-X P1) (by probnode edge), (prob node, ef 68 Utime 0 of op UP-X P1) (by probnode edge),
+(POS P2 P1), edges to: (prob node, ef 31 Utime 0 of op UP-Y P1) (by probnode edge), (prob node, ef 68 Utime 0 of op UP-X P1) (by probnode edge),
+(POS P1 P2), edges to: (prob node, ef 32 Utime 0 of op UP-Y P1) (by probnode edge), (prob node, ef 67 Utime 0 of op UP-X P1) (by probnode edge),
+

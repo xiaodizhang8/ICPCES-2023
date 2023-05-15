@@ -1,0 +1,23 @@
+(define (domain blocksworld)
+(:predicates (clear ?x)
+             (on-table ?x)
+             (on ?x ?y))
+
+(:action move-b-to-b
+  :parameters (?bm ?bf ?bt)
+  :precondition (and (clear ?bm) (clear ?bt) (on ?bm ?bf))
+  :effect (and (not (clear ?bt)) (not (on ?bm ?bf))
+               (on ?bm ?bt) (clear ?bf)))
+
+(:action move-bstack-to-t
+  :parameters (?b ?bl)
+  :effect (and (when (on ?b ?bl) 
+                     (and (not (on ?b ?bl)) (on-table ?b) (clear ?bl)))))
+
+
+(:action move-t-to-b
+  :parameters (?bm ?bt)
+  :precondition (and (clear ?bm) (clear ?bt) (on-table ?bm))
+  :effect (and (not (clear ?bt)) (not (on-table ?bm))
+               (on ?bm ?bt))))
+

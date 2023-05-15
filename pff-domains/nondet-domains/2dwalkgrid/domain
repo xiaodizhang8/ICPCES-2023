@@ -1,0 +1,453 @@
+(define (domain twodgrid)
+
+(:predicates 
+(pos ?pos ?pos); x, y 
+(above ?phigh ?plow)
+)
+
+
+
+
+
+
+
+
+
+(:action up-x
+:parameters (?px)
+:effect 
+(and 
+(forall (?py ?pxu ?pyl ?pyu)
+(whenpc 0.8 
+(and 
+(above ?pxu ?px)
+(above ?pyu ?py)
+(above ?py ?pyl)
+(pos ?px ?py)
+)
+(and (pos ?pxu ?py) (not (pos ?px ?py)))))
+
+(forall (?py ?pxu ?pyl ?pyu)
+(whenpc 0.1 
+(and 
+(above ?pxu ?px)
+(above ?pyu ?py)
+(above ?py ?pyl)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyu) (not (pos ?px ?py)))))
+
+(forall (?py ?pxu ?pyl ?pyu)
+(whenpc 0.1 
+(and 
+(above ?pxu ?px)
+(above ?pyu ?py)
+(above ?py ?pyl)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyl) (not (pos ?px ?py)))))
+
+
+
+(forall (?pxu ?py ?pyu)
+(whenpc 0.8 
+(and 
+(above ?pxu ?px)
+(not (exists (?pyl) (above ?py ?pyl)))
+(above ?pyu ?py)
+(pos ?px ?py)
+)
+(and (pos ?pxu ?py) (not (pos ?px ?py)))))
+
+(forall (?pxu ?py ?pyu)
+(whenpc 0.1 
+(and 
+(above ?pxu ?px)
+(not (exists (?pyl) (above ?py ?pyl)))
+(above ?pyu ?py)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyu) (not (pos ?px ?py)))))
+
+(forall (?pxu ?py ?pyu)
+(whenpc 0.1 
+(and 
+(above ?pxu ?px)
+(not (exists (?pyl) (above ?py ?pyl)))
+(above ?pyu ?py)
+(pos ?px ?py)
+)
+(pos ?px ?py)))
+
+
+
+(forall (?pxu ?py ?pyl)
+(whenpc 0.8 
+(and 
+(above ?pxu ?px)
+(not (exists (?pyu) (above ?pyu ?py)))
+(above ?py ?pyl)
+(pos ?px ?py)
+)
+(and (pos ?pxu ?py) (not (pos ?px ?py)))))
+
+(forall (?pxu ?py ?pyl)
+(whenpc 0.1 
+(and 
+(above ?pxu ?px)
+(not (exists (?pyu) (above ?pyu ?py)))
+(above ?py ?pyl)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyl) (not (pos ?px ?py)))))
+
+(forall (?pxu ?py ?pyl)
+(whenpc 0.1 
+(and 
+(above ?pxu ?px)
+(not (exists (?pyu) (above ?pyu ?py)))
+(above ?py ?pyl)
+(pos ?px ?py)
+)
+(pos ?px ?py)))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(:action down-x
+:parameters (?px)
+:effect 
+(and 
+(forall (?py ?pxl ?pyl ?pyu)
+(whenpc 0.8 
+(and 
+(above ?px ?pxl)
+(above ?pyu ?py)
+(above ?py ?pyl)
+(pos ?px ?py)
+)
+(and (pos ?pxl ?py) (not (pos ?px ?py)))))
+
+(forall (?py ?pxl ?pyl ?pyu)
+(whenpc 0.1 
+(and 
+(above ?px ?pxl)
+(above ?pyu ?py)
+(above ?py ?pyl)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyu) (not (pos ?px ?py)))))
+
+(forall (?py ?pxl ?pyl ?pyu)
+(whenpc 0.1 
+(and 
+(above ?px ?pxl)
+(above ?pyu ?py)
+(above ?py ?pyl)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyl) (not (pos ?px ?py)))))
+
+
+
+(forall (?pxl ?py ?pyu)
+(whenpc 0.8 
+(and 
+(above ?px ?pxl)
+(not (exists (?pyl) (above ?py ?pyl)))
+(above ?pyu ?py)
+(pos ?px ?py)
+)
+(and (pos ?pxl ?py) (not (pos ?px ?py)))))
+
+(forall (?pxl ?py ?pyu)
+(whenpc 0.1
+(and 
+(above ?px ?pxl)
+(not (exists (?pyl) (above ?py ?pyl)))
+(above ?pyu ?py)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyu) (not (pos ?px ?py)))))
+
+(forall (?pxl ?py ?pyu)
+(whenpc 0.1
+(and 
+(above ?px ?pxl)
+(not (exists (?pyl) (above ?py ?pyl)))
+(above ?pyu ?py)
+(pos ?px ?py)
+)
+(pos ?px ?py)))
+
+
+
+(forall (?pxl ?py ?pyl)
+(whenpc 0.8 
+(and 
+(above ?px ?pxl)
+(not (exists (?pyu) (above ?pyu ?py)))
+(above ?py ?pyl)
+(pos ?px ?py)
+)
+(and (pos ?pxl ?py) (not (pos ?px ?py)))))
+
+(forall (?pxl ?py ?pyl)
+(whenpc 0.1
+(and 
+(above ?px ?pxl)
+(not (exists (?pyu) (above ?pyu ?py)))
+(above ?py ?pyl)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyl) (not (pos ?px ?py)))))
+
+(forall (?pxl ?py ?pyl)
+(whenpc 0.1
+(and 
+(above ?px ?pxl)
+(not (exists (?pyu) (above ?pyu ?py)))
+(above ?py ?pyl)
+(pos ?px ?py)
+)
+(pos ?px ?py)))))
+
+
+
+
+
+
+
+
+
+
+
+
+(:action up-y
+:parameters (?py)
+:effect 
+(and 
+(forall (?px ?pyu ?pxl ?pxu)
+(whenpc 0.8 
+(and 
+(above ?pyu ?py)
+(above ?pxu ?px)
+(above ?px ?pxl)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyu) (not (pos ?px ?py)))))
+
+(forall (?px ?pyu ?pxl ?pxu)
+(whenpc 0.1 
+(and 
+(above ?pyu ?py)
+(above ?pxu ?px)
+(above ?px ?pxl)
+(pos ?px ?py)
+)
+(and (pos ?pxu ?py) (not (pos ?px ?py)))))
+
+(forall (?px ?pyu ?pxl ?pxu)
+(whenpc 0.1
+(and 
+(above ?pyu ?py)
+(above ?pxu ?px)
+(above ?px ?pxl)
+(pos ?px ?py)
+)
+(and (pos ?pxl ?py) (not (pos ?px ?py)))))
+
+
+
+(forall (?pyu ?px ?pxu)
+(whenpc 0.8 
+(and 
+(above ?pyu ?py)
+(not (exists (?pxl) (above ?px ?pxl)))
+(above ?pxu ?px)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyu) (not (pos ?px ?py)))))
+
+(forall (?pyu ?px ?pxu)
+(whenpc 0.1 
+(and 
+(above ?pyu ?py)
+(not (exists (?pxl) (above ?px ?pxl)))
+(above ?pxu ?px)
+(pos ?px ?py)
+)
+(and (pos ?pxu ?py) (not (pos ?px ?py)))))
+
+(forall (?pyu ?px ?pxu)
+(whenpc 0.1 
+(and 
+(above ?pyu ?py)
+(not (exists (?pxl) (above ?px ?pxl)))
+(above ?pxu ?px)
+(pos ?px ?py)
+)
+(pos ?px ?py)))
+
+
+
+(forall (?pyu ?px ?pxl)
+(whenpc 0.8 
+(and 
+(above ?pyu ?py)
+(not (exists (?pxu) (above ?pxu ?px)))
+(above ?px ?pxl)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyu) (not (pos ?px ?py)))))
+
+(forall (?pyu ?px ?pxl)
+(whenpc 0.1 
+(and 
+(above ?pyu ?py)
+(not (exists (?pxu) (above ?pxu ?px)))
+(above ?px ?pxl)
+(pos ?px ?py)
+)
+(and (pos ?pxl ?py) (not (pos ?px ?py)))))
+
+(forall (?pyu ?px ?pxl)
+(whenpc 0.1
+(and 
+(above ?pyu ?py)
+(not (exists (?pxu) (above ?pxu ?px)))
+(above ?px ?pxl)
+(pos ?px ?py)
+)
+(pos ?px ?py)))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(:action down-y
+:parameters (?py)
+:effect 
+(and 
+(forall (?px ?pyl ?pxl ?pxu)
+(whenpc 0.8 
+(and 
+(above ?py ?pyl)
+(above ?pxu ?px)
+(above ?px ?pxl)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyl) (not (pos ?px ?py)))))
+
+(forall (?px ?pyl ?pxl ?pxu)
+(whenpc 0.1 
+(and 
+(above ?py ?pyl)
+(above ?pxu ?px)
+(above ?px ?pxl)
+(pos ?px ?py)
+)
+(and (pos ?pxu ?py) (not (pos ?px ?py)))))
+
+(forall (?px ?pyl ?pxl ?pxu)
+(whenpc 0.1
+(and 
+(above ?py ?pyl)
+(above ?pxu ?px)
+(above ?px ?pxl)
+(pos ?px ?py)
+)
+(and (pos ?pxl ?py) (not (pos ?px ?py)))))
+
+
+
+(forall (?pyl ?px ?pxu)
+(whenpc 0.8 
+(and 
+(above ?py ?pyl)
+(not (exists (?pxl) (above ?px ?pxl)))
+(above ?pxu ?px)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyl) (not (pos ?px ?py)))))
+
+(forall (?pyl ?px ?pxu)
+(whenpc 0.1 
+(and 
+(above ?py ?pyl)
+(not (exists (?pxl) (above ?px ?pxl)))
+(above ?pxu ?px)
+(pos ?px ?py)
+)
+(and (pos ?pxu ?py) (not (pos ?px ?py)))))
+
+(forall (?pyl ?px ?pxu)
+(whenpc 0.1 
+(and 
+(above ?py ?pyl)
+(not (exists (?pxl) (above ?px ?pxl)))
+(above ?pxu ?px)
+(pos ?px ?py)
+)
+(pos ?px ?py)))
+
+
+
+(forall (?pyl ?px ?pxl)
+(whenpc 0.8 
+(and 
+(above ?py ?pyl)
+(not (exists (?pxu) (above ?pxu ?px)))
+(above ?px ?pxl)
+(pos ?px ?py)
+)
+(and (pos ?px ?pyl) (not (pos ?px ?py)))))
+
+(forall (?pyl ?px ?pxl)
+(whenpc 0.1 
+(and 
+(above ?py ?pyl)
+(not (exists (?pxu) (above ?pxu ?px)))
+(above ?px ?pxl)
+(pos ?px ?py)
+)
+(and (pos ?pxl ?py) (not (pos ?px ?py)))))
+
+(forall (?pyl ?px ?pxl)
+(whenpc 0.1
+(and 
+(above ?py ?pyl)
+(not (exists (?pxu) (above ?pxu ?px)))
+(above ?px ?pxl)
+(pos ?px ?py)
+)
+(pos ?px ?py)))))
+
+
+
+
+
+
+)

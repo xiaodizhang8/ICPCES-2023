@@ -1,0 +1,24 @@
+
+
+
+(define (problem safe-3)
+(:domain safe)
+(:objects c1 c2 c3 )
+(:init
+(cpt (right-combination c1) 0.333334)
+(cpt (right-combination c2) 0.333333)
+(cpt (right-combination c3) 0.333333)
+(multi
+(right-combination c1)
+(right-combination c2)
+(right-combination c3)
+)
+)
+(:goal 0.500000
+(and
+(safe-open)
+)
+)
+)
+
+

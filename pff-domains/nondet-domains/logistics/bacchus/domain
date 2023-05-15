@@ -1,0 +1,99 @@
+(define (domain logistics-strips)
+  (:requirements :strips) 
+  (:predicates 	(OBJ ?obj)
+	       	(TRUCK ?truck)
+               	(LOCATION ?loc)
+		(AIRPLANE ?airplane)
+                (CITY ?city)
+                (AIRPORT ?airport)
+		(at ?obj ?loc)
+		(in ?obj1 ?obj2)
+		(in-city ?obj ?city))
+ 
+  ; (:types )		; default object
+
+(:action LOAD-TRUCK
+  :parameters
+   (?obj
+    ?truck
+    ?loc)
+  :precondition
+   (and (OBJ ?obj) (TRUCK ?truck) (LOCATION ?loc)
+   (at ?truck ?loc))
+  :effect
+   (and 
+	(whenpc 0.875 (at ?obj ?loc) (and (not (at ?obj ?loc)) (in ?obj ?truck)))
+	(whenpc 0.125 (at ?obj ?loc) (and))
+   )
+)
+
+(:action LOAD-AIRPLANE
+  :parameters
+   (?obj
+    ?airplane
+    ?loc)
+  :precondition
+   (and (OBJ ?obj) (AIRPLANE ?airplane) (LOCATION ?loc)
+   (at ?airplane ?loc))
+  :effect
+   (and 
+	(whenpc 0.9 (at ?obj ?loc) (and (not (at ?obj ?loc)) (in ?obj ?airplane)))
+	(whenpc 0.1 (at ?obj ?loc) (and))
+   )
+)
+
+(:action UNLOAD-TRUCK
+  :parameters
+   (?obj
+    ?truck
+    ?loc)
+  :precondition
+   (and (OBJ ?obj) (TRUCK ?truck) (LOCATION ?loc)
+        (at ?truck ?loc))
+  :effect
+   (and 
+	(whenpc 0.75 (in ?obj ?truck) (and (not (in ?obj ?truck)) (at ?obj ?loc)))
+	(whenpc 0.25 (in ?obj ?truck) (and))
+   )
+)
+
+(:action UNLOAD-AIRPLANE
+  :parameters
+   (?obj
+    ?airplane
+    ?loc)
+  :precondition
+   (and (OBJ ?obj) (AIRPLANE ?airplane) (LOCATION ?loc)
+        (at ?airplane ?loc))
+  :effect
+   (and 
+	(whenpc 0.8 (in ?obj ?airplane) (and (not (in ?obj ?airplane)) (at ?obj ?loc)))
+	(whenpc 0.2 (in ?obj ?airplane) (and))
+   )
+)
+
+(:action DRIVE-TRUCK
+  :parameters
+   (?truck
+    ?loc-from
+    ?loc-to
+    ?city)
+  :precondition
+   (and (TRUCK ?truck) (LOCATION ?loc-from) (LOCATION ?loc-to) (CITY ?city)
+   (at ?truck ?loc-from)
+   (in-city ?loc-from ?city)
+   (in-city ?loc-to ?city))
+  :effect
+   (and (not (at ?truck ?loc-from)) (at ?truck ?loc-to)))
+
+(:action FLY-AIRPLANE
+  :parameters
+   (?airplane
+    ?loc-from
+    ?loc-to)
+  :precondition
+   (and (AIRPLANE ?airplane) (AIRPORT ?loc-from) (AIRPORT ?loc-to)
+	(at ?airplane ?loc-from))
+  :effect
+   (and (not (at ?airplane ?loc-from)) (at ?airplane ?loc-to)))
+)
