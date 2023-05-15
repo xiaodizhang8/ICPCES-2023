@@ -25,7 +25,7 @@ def get_action_map(actions, result):
         result[action.name] = action
     return result
 
-def conformantPlanningCPCES(problem, domain_file, instance_file, planner, search_engine=None, superb=True, merged=True, separated=True):
+def conformantPlanningCPCES(problem, domain_file, instance_file, planner, search_engine=None, superb=True, merging_facts=True, separate_forall=True):
     global sampling_time
     contexts = None
     SUPERB_info = None
@@ -43,7 +43,7 @@ def conformantPlanningCPCES(problem, domain_file, instance_file, planner, search
     print('context')
     print(contexts.get_contexts())
     merging_contexts = None
-    if merged:
+    if merging_facts:
         merging_contexts = MergingContext(atoms, actions, problem.goal,
                                           problem.all_possible_initial - problem.initial_true - problem.initial_false)
         print('merging context')
@@ -74,8 +74,8 @@ def conformantPlanningCPCES(problem, domain_file, instance_file, planner, search
         sample_list.append(counter_example)
 
         #update explore problem
-        writeDomainFile(problem, classical_domain_file, sample_list=sample_list, contexts=merging_contexts, merged=merged, separated=separated)
-        writeSampleFile(sample_list, problem, classical_instance_file, contexts=merging_contexts, merged=merged, separated=separated)
+        writeDomainFile(problem, classical_domain_file, sample_list=sample_list, contexts=merging_contexts, merging_facts=merging_facts, separate_forall=separate_forall)
+        writeSampleFile(sample_list, problem, classical_instance_file, contexts=merging_contexts, merging_facts=merging_facts, separate_forall=separate_forall)
         candidate_plan = planning(classical_domain_file, classical_instance_file, planner, search_engine)
         if candidate_plan is None:
             print("no solution")
@@ -88,12 +88,10 @@ def conformantPlanningCPCES(problem, domain_file, instance_file, planner, search
             print('find a plan')
             print(candidate_plan)
             print('')
-        if iteration == 1:
-            break
         iteration += 1
 
 
-def warmStartingCPCES(problem, domain_file, instance_file, planner, search_engine=None, superb=True, merged=True, separated=True):
+def warmStartingCPCES(problem, domain_file, instance_file, planner, search_engine=None, superb=True, merging_facts=True, separate_forall=True):
     global sampling_time
     contexts = None
     SUPERB_info = None
@@ -111,7 +109,7 @@ def warmStartingCPCES(problem, domain_file, instance_file, planner, search_engin
     print('context')
     print(contexts.get_contexts())
     merging_contexts = None
-    if merged:
+    if merging_facts:
         merging_contexts = MergingContext(atoms, actions, problem.goal,
                                           problem.all_possible_initial - problem.initial_true - problem.initial_false)
         print('merging context')
@@ -152,9 +150,9 @@ def warmStartingCPCES(problem, domain_file, instance_file, planner, search_engin
 
         # update explore problem
         writeDomainFile(problem, classical_domain_file, sample_list=sample_list, contexts=merging_contexts,
-                        merged=merged, separated=separated)
-        writeSampleFile(sample_list, problem, classical_instance_file, contexts=merging_contexts, merged=merged,
-                        separated=separated)
+                        merging_facts=merging_facts, separate_forall=separate_forall)
+        writeSampleFile(sample_list, problem, classical_instance_file, contexts=merging_contexts, merging_facts=merging_facts,
+                        separate_forall=separate_forall)
         candidate_plan = planning(classical_domain_file, classical_instance_file, planner, search_engine)
         if candidate_plan is None:
             print("no solution")
@@ -167,8 +165,6 @@ def warmStartingCPCES(problem, domain_file, instance_file, planner, search_engin
             print('find a plan')
             print(candidate_plan)
             print('')
-        # if iteration == 1:
-        #     break
         iteration += 1
 
 
@@ -242,8 +238,6 @@ def conformantPlanningICC(problem, domain_file, instance_file, search_engine=Non
             pgen.read_sas(iteration)
         pgen.write_sas()
         planning_start = time.time()
-        if iteration == 5:
-            break
         candidate_plan = pgen.compute_plan(search_engine)
         fd_search_time += time.time() - planning_start
         if candidate_plan == 'Search stopped without finding a solution.':
@@ -253,26 +247,25 @@ def conformantPlanningICC(problem, domain_file, instance_file, search_engine=Non
         print(candidate_plan)
         print('')
         iteration += 1
-        if iteration == 6:
-            break
 
 
 
-def conformantPlanning(domain_file, instance_file, planner, search_engine=None, superb=True, merged=True, separated=True, multiple=True):
+
+def conformantPlanning(domain_file, instance_file, planner, search_engine=None, superb=True, merging_facts=True, separate_forall=True, warm_staring=True):
     print('superb', superb)
-    print('merge', merged)
-    print('separate', separated)
-    print('multiple', multiple)
+    print('merging facts', merging_facts)
+    print('saperate forall', separate_forall)
+    print('warm staring', warm_staring)
     start = time.time()
     problem = open(domain_file, instance_file)
     if planner == 'superfd':
         conformantPlanningICC(problem, domain_file, instance_file, search_engine, superb)
         print('FD search time: ' + str(fd_search_time))
     else:
-        if multiple:
-            warmStartingCPCES(problem, domain_file, instance_file, planner, search_engine, superb, merged, separated)
+        if warm_staring:
+            warmStartingCPCES(problem, domain_file, instance_file, planner, search_engine, superb, merging_facts, separate_forall)
         else:
-            conformantPlanningCPCES(problem, domain_file, instance_file, planner, search_engine, superb, merged, separated)
+            conformantPlanningCPCES(problem, domain_file, instance_file, planner, search_engine, superb, merging_facts, separate_forall)
     conformant_planning_time = time.time() - start
     print('conformant planning time: '+ str(conformant_planning_time))
     print('sampling time: ' + str(sampling_time))
@@ -290,20 +283,20 @@ if __name__ == '__main__':
     # conformantPlanning('FD-Benchmarks/blockworld/domain.pddl', 'FD-Benchmarks/blockworld/instances/p03.pddl', 'superfd', 'eager(single(ff()))', True, False, False, False)
     # conformantPlanning('FD-Benchmarks/bomb/domain.pddl', 'FD-Benchmarks/bomb/instances/p100-5.pddl', 'ff', 'eager(single(ff()))', True, True, True, True)
     # conformantPlanning('FD-Benchmarks/coins/domain.pddl', 'FD-Benchmarks/coins/instances/p12.pddl', 'ff', 'eager(single(ff()))', True, True, True, True)
-    conformantPlanning('FD-Benchmarks/dispose/domain.pddl', 'FD-Benchmarks/dispose/instances/p_4_2.pddl', 'superfd', 'eager(single(ff()))', True, False, False, False)
+    # conformantPlanning('FD-Benchmarks/dispose/domain.pddl', 'FD-Benchmarks/dispose/instances/p_4_2.pddl', 'superfd', 'eager(single(ff()))', True, False, False, False)
     # conformantPlanning('FD-Benchmarks/look-grab_4_2_2/domain.pddl', 'FD-Benchmarks/look-grab_4_2_2/instances/p_4_2_2.pddl', 'ff', 'eager(single(ff()))', True, True, True, False)
     # conformantPlanning('FD-Benchmarks/one_dispose/domain.pddl', 'FD-Benchmarks/one_dispose/instances/p_3_2.pddl', 'ff', 'eager(single(ff()))', True, True, True, True)
     # conformantPlanning('FD-Benchmarks/raos_keys_2/domain.pddl', 'FD-Benchmarks/raos_keys_2/instances/p2.pddl', 'ff', 'eager(single(ff()))', True, True, True, True)
     # conformantPlanning('FD-Benchmarks/uts/domain.pddl', 'FD-Benchmarks/uts/instances/p20.pddl', 'superfd', 'eager(single(ff()))', True, False, False, False)
     # conformantPlanning('other-benchmarks/grid/wall/domain_10_1229.pddl', 'other-benchmarks/grid/wall/instance_10_1229.pddl', 'ff', 'eager(single(ff()))', True, True, False, True)
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('-d', '--domain', dest='domain')
-    # parser.add_argument('-i', '--instance', dest='instance')
-    # parser.add_argument('-p', '--planner', dest='planner', default='superfd')
-    # parser.add_argument('-s', '--search_engine', dest='search_engine', default='eager(single(ff))')
-    # parser.add_argument('-b', '--superb', dest='superb', default=True)
-    # parser.add_argument('-m', '--merged', dest='merged', default=True)
-    # parser.add_argument('-sep', '--seperated', dest='seperated', default=True)
-    # parser.add_argument('-mul', '--multiple', dest='multiple', default=True)
-    # args = parser.parse_args()
-    # conformantPlanning(args.domain, args.instance, args.planner, args.search_engine, args.superb, args.merged, args.seperated, args.multiple)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--domain', dest='domain')
+    parser.add_argument('-i', '--instance', dest='instance')
+    parser.add_argument('-p', '--planner', dest='planner', default='superfd')
+    parser.add_argument('-s', '--search_engine', dest='search_engine', default='eager(single(ff))')
+    parser.add_argument('-b', '--superb', dest='superb', default=True)
+    parser.add_argument('-m', '--merge', dest='merging_facts', default=True)
+    parser.add_argument('-sep', '--separated', dest='separate_forall', default=True)
+    parser.add_argument('-mul', '--warm', dest='warm_staring', default=True)
+    args = parser.parse_args()
+    conformantPlanning(args.domain, args.instance, args.planner, args.search_engine, args.superb, args.merging_facts, args.separate_forall, args.warm_staring)

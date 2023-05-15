@@ -554,22 +554,22 @@ def write_no_empty_plan_instance_file(problem, sample_list, start_init, classica
     with open(classical_instance_file, 'w') as f:
         f.write(res)
 
-def writeSampleFile(sample_list, problem, classical_instance_file, contexts=None, merged=True, separated=True):
-    if not merged and not separated:
+def writeSampleFile(sample_list, problem, classical_instance_file, contexts=None, merging_facts=True, separate_forall=True):
+    if not merging_facts and not separate_forall:
         writeClassicalSampleFile(sample_list, problem, classical_instance_file)
-    elif merged and not separated:
+    elif merging_facts and not separate_forall:
         writeMergedClassicalSampleFile(sample_list, problem, classical_instance_file, contexts)
-    elif not merged and separated:
+    elif not merging_facts and separate_forall:
         writeSeparatedClassicalSampleFile(sample_list, problem, classical_instance_file)
     else:
         writeMergedSeparatedClassicalSampleFile(sample_list, problem, classical_instance_file, contexts)
 
-def writeDomainFile(problem, classical_domain_file, sample_list=None, contexts=None, merged=True, separated=True):
-    if not merged and not separated:
+def writeDomainFile(problem, classical_domain_file, sample_list=None, contexts=None, merging_facts=True, separate_forall=True):
+    if not merging_facts and not separate_forall:
         writeClassicalDomainFile(problem, classical_domain_file)
-    elif merged and not separated:
+    elif merging_facts and not separate_forall:
         writeMergedClassicalDomainFile(problem, classical_domain_file, contexts)
-    elif not merged and separated:
+    elif not merging_facts and separate_forall:
         writeSeparatedClassicalDomainFile(problem, classical_domain_file, sample_list)
     else:
         writeMergedSeparatedClassicalDomainFile(problem, classical_domain_file, contexts, sample_list)
