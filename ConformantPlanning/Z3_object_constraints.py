@@ -207,7 +207,7 @@ class ObjectConstrains:
         if name not in self.predicates_to_bool.keys():
             bool_item = Bool(name)
             self.predicates_to_bool[name] = bool_item
-            self.predicates_to_atom[name] = predicate
+            self.predicates_to_atom[name] = predicate.get_formated_expression()
             self.predicate_time_to_bool[(predicate, timestamp)] = bool_item
             return bool_item
         else:
@@ -225,7 +225,7 @@ class ObjectConstrains:
         if name not in self.predicates_to_bool.keys():
             bool_item = Bool(name)
             self.predicates_to_bool[name] = bool_item
-            self.predicates_to_atom[name] = predicate
+            self.predicates_to_atom[name] = predicate.get_formated_expression()
             self.predicate_time_to_bool[(predicate, timestamp)] = bool_item
             neg_bool_item = Not(bool_item)
             return neg_bool_item

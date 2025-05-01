@@ -79,9 +79,7 @@ class multiSampleGenerator:
         results = re.findall(pattern, model)
         for item in results:
             if item[0].endswith('-0') and item[1] == 'true':
-                atom = self.constraint_object.predicates_to_atom[item[0]]
-                atom = atom.get_formated_expression()
-                counter_example.add(atom)
+                counter_example.add(self.constraint_object.predicates_to_atom[item[0]])
         return counter_example
 
 
