@@ -67,6 +67,7 @@ class sampleGenerator:
         model = model.strip()
         pattern = '\(define-fun (.*) \(\) Bool\n  (.*)\)'
         results = re.findall(pattern, model)
+        print(results)
         for item in results:
             if item[0].endswith('-0') and item[1] == 'true':
                 counter_example.add(self.constraint_object.declared_predicate[item[0]])
