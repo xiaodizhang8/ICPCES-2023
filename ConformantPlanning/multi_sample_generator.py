@@ -33,6 +33,8 @@ class multiSampleGenerator:
                     false_predicates.add(predicate)
 
         predicates_map = dict()  # 普通格式-Atom格式
+        print(self.problem.all_possible_initial)
+        print(self.problem.initial_true)
         for predicate in self.problem.all_possible_initial | self.problem.initial_true | self.problem.initial_false:
             if isinstance(predicate, Atom):
                 predicates_map[predicate.get_formated_expression()] = predicate
