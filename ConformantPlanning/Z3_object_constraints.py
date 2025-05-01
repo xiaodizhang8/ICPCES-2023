@@ -156,16 +156,16 @@ class ObjectConstrains:
             if not item.predicate.startswith('='):
                 items.add(self.to_smt(item, 0))
 
-        for unknown_group in self.problem.initial_probability_groups:
-            unknown_items = set()
-            sub_items = set()
-            for item in unknown_group:
-                sub_items.add(self.to_smt(item, 0))
-            unknown_items.add(Or(sub_items))
-            combinations = list(itertools.combinations(unknown_group, 2))
-            for item in combinations:
-                unknown_items.add(Or(Not(self.to_smt(item[0], 0)), Not(self.to_smt(item[1], 0))))
-            items.add(And(unknown_items))
+        # for unknown_group in self.problem.initial_probability_groups:
+        #     unknown_items = set()
+        #     sub_items = set()
+        #     for item in unknown_group:
+        #         sub_items.add(self.to_smt(item, 0))
+        #     unknown_items.add(Or(sub_items))
+        #     combinations = list(itertools.combinations(unknown_group, 2))
+        #     for item in combinations:
+        #         unknown_items.add(Or(Not(self.to_smt(item[0], 0)), Not(self.to_smt(item[1], 0))))
+        #     items.add(And(unknown_items))
 
         for group in self.problem.disjunction_inits:
             disjunct_items = set()
