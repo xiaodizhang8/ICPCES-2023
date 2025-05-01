@@ -33,14 +33,11 @@ class multiSampleGenerator:
                     false_predicates.add(predicate)
 
         predicates_map = dict()  # 普通格式-Atom格式
-        print(self.problem.all_possible_initial)
-        print(self.problem.initial_true)
         for predicate in self.problem.all_possible_initial | self.problem.initial_true | self.problem.initial_false:
             if isinstance(predicate, Atom):
                 predicates_map[predicate.get_formated_expression()] = predicate
             else:
                 predicates_map[predicate.negate().get_formated_expression()] = predicate.negate()
-        print(predicates_map)
 
         self.constraint_object = ObjectConstrains(self.problem, self.candidate_plan, self.action_map, self.contexts)
         self.constraint_object.add_precondition_statements()
@@ -57,7 +54,7 @@ class multiSampleGenerator:
         while counter_example is not None:
             sample_list.append(counter_example)
             for predicate in counter_example:
-                if predicates_map[predicate] in unknown_init:
+                if predicates_map[predicate.get_formated_expression()] in unknown_init:
                     bool_item = self.constraint_object.to_smt(predicates_map[predicate], 0)
                     self.solver.push()
                     self.solver.add(Not(bool_item))
