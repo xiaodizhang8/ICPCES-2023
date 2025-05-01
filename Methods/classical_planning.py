@@ -457,7 +457,7 @@ def planning(classical_domain_file, classical_instance_file, planner, search_eng
 def call_planner(cmd):
     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
     stdout = process.stdout.read()
-    # print(stdout)
+    print(stdout)
     stderr = process.stderr.read().strip()
     if stderr != '':
         print(stderr)

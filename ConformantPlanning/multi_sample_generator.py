@@ -52,7 +52,6 @@ class multiSampleGenerator:
         counter_example = self.call_SMT_solver()
         sample_list = list()
         while counter_example is not None:
-            print(counter_example)
             sample_list.append(counter_example)
             for predicate in counter_example:
                 if predicates_map[predicate] in unknown_init:
