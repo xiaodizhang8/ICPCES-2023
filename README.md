@@ -40,12 +40,12 @@ python3 conformant_planning.py -d FD-Benchmarks/uts/domain.pddl -i FD-Benchmarks
 ## How to run method of ''merging certain facts''?
 example:
 ```bash
-python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchmarks/dispose/instances/p_4_2.pddl -p ff -b False -m True -sep False -mul False
+python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchmarks/dispose/instances/p_4_2.pddl -p ff -b True -m True -sep False -mul False
 ```
 In the command above, -d is the path of domain file, -i is the path of instance file, -p is the classical planner (either ff or fd), -m True means merging certain facts.
 Sometimes, avoid using ''forall'' in PDDL may improve the searching efficiency. To separate a ''forall'' clause into multiple single clauses, using -sep True.
 ```bash
-python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchmarks/dispose/instances/p_4_2.pddl -p ff -b False -m True -sep True -mul False
+python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchmarks/dispose/instances/p_4_2.pddl -p ff -b True -m True -sep True -mul False
 ```
 
 ## How to run warm-starting CPCES?
@@ -53,13 +53,13 @@ DON'T USE -sep True WHEN DOING warm-starting CPCES!!!
 
 example:
 ```bash
-python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchmarks/dispose/instances/p_4_2.pddl -p ff -b False -m False -sep False -mul True
+python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchmarks/dispose/instances/p_4_2.pddl -p ff -b True -m False -sep False -mul True
 ```
 In the command above, -mul True let you use warm-starting CPCES
 
 ## How to integrate Fast-Downward into CPCES?
 example:
 ```bash
-python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchmarks/dispose/instances/p_4_2.pddl -p superfd -s 'eager(single(ff))' -b False -m False -sep False -mul False
+python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchmarks/dispose/instances/p_4_2.pddl -p superfd -s 'eager(single(ff))' -b True -m False -sep False -mul False
 ```
 We are using ''superfd'' in planner option to represent our integration method in CPCES:)
