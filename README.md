@@ -40,6 +40,7 @@ python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchm
 
 ## How to run warm-starting CPCES?
 DON'T USE -sep True WHEN DOING warm-starting CPCES!!!
+
 example:
 ```bash
 python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchmarks/dispose/instances/p_4_2.pddl -p ff -b False -m False -sep False -mul True
