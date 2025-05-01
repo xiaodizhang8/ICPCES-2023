@@ -45,6 +45,7 @@ class multiSampleGenerator:
         self.constraint_object.add_other_statements()
         self.solver.add(self.constraint_object.constraints)
         for predicate in false_predicates:
+            print(predicate,predicate in unknown_init)
             if predicate in unknown_init:
                 bool_item = self.constraint_object.to_smt(predicate, 0)
                 self.constraint_object.constraints.append(Not(bool_item))
@@ -79,7 +80,6 @@ class multiSampleGenerator:
         pattern = '\(define-fun (.*) \(\) Bool\n  (.*)\)'
         results = re.findall(pattern, model)
         for item in results:
-            print(item)
             if item[0].endswith('-0') and item[1] == 'true':
                 counter_example.add(self.constraint_object.predicates_to_atom[item[0]])
         return counter_example
