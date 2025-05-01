@@ -79,6 +79,7 @@ class multiSampleGenerator:
         pattern = '\(define-fun (.*) \(\) Bool\n  (.*)\)'
         results = re.findall(pattern, model)
         for item in results:
+            print(item)
             if item[0].endswith('-0') and item[1] == 'true':
                 counter_example.add(self.constraint_object.predicates_to_atom[item[0]])
         return counter_example
