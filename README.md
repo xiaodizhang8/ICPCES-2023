@@ -47,6 +47,7 @@ python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchm
 In the command above, -mul True let you use warm-starting CPCES
 
 ## How to integrate Fast-Downward into CPCES?
+example:
 ```bash
 python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchmarks/dispose/instances/p_4_2.pddl -p superfd -s 'eager(single(ff))' -b False -m False -sep False -mul False
 ```
