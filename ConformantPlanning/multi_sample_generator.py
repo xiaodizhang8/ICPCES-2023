@@ -59,6 +59,7 @@ class multiSampleGenerator:
                     self.solver.push()
                     self.solver.add(Not(bool_item))
             counter_example = self.call_SMT_solver()
+            print(counter_example)
         return sample_list
 
 
