@@ -40,6 +40,7 @@ class multiSampleGenerator:
                 predicates_map[predicate.get_formated_expression()] = predicate
             else:
                 predicates_map[predicate.negate().get_formated_expression()] = predicate.negate()
+        print(predicates_map)
 
         self.constraint_object = ObjectConstrains(self.problem, self.candidate_plan, self.action_map, self.contexts)
         self.constraint_object.add_precondition_statements()
