@@ -44,9 +44,9 @@ class multiSampleGenerator:
         self.constraint_object.add_initial_statements()
         self.constraint_object.add_other_statements()
         self.solver.add(self.constraint_object.constraints)
+        print(unknown_init)
         for predicate in false_predicates:
             if predicate in unknown_init:
-                print(predicate)
                 bool_item = self.constraint_object.to_smt(predicate, 0)
                 self.constraint_object.constraints.append(Not(bool_item))
 
