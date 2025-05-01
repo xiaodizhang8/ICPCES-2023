@@ -44,13 +44,14 @@ class multiSampleGenerator:
         self.constraint_object.add_initial_statements()
         self.constraint_object.add_other_statements()
         self.solver.add(self.constraint_object.constraints)
-        print(unknown_init)
         for predicate in false_predicates:
             if predicate in unknown_init:
                 bool_item = self.constraint_object.to_smt(predicate, 0)
                 self.constraint_object.constraints.append(Not(bool_item))
 
         counter_example = self.call_SMT_solver()
+        print('-'*10)
+        print(counter_example)
         sample_list = list()
         while counter_example is not None:
             sample_list.append(counter_example)
