@@ -27,6 +27,16 @@ python3 conformant_planning.py -d FD-Benchmarks/uts/domain.pddl -i FD-Benchmarks
 ```
 In the command above, -p fd means you choose using Fast Downward, and -s 'eager(single(ff))' is the searching engine option. There are various searching options in Fast Downward (refer official website). Choose the best one!
 
+In CPCES, the better option is using superb version. The paper about superb is here:
+https://ojs.aaai.org/index.php/AAAI/article/view/6558
+
+To run superb, just make -b option be True.
+
+example:
+```bash
+python3 conformant_planning.py -d FD-Benchmarks/uts/domain.pddl -i FD-Benchmarks/uts/instances/p20.pddl -p ff -b True -m False -sep False -mul False
+```
+
 ## How to run method of ''merging certain facts''?
 example:
 ```bash
