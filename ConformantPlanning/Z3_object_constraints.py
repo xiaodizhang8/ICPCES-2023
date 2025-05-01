@@ -156,7 +156,7 @@ class ObjectConstrains:
             if not item.predicate.startswith('='):
                 items.add(self.to_smt(item, 0))
 
-        for unknown_group in self.problem.initial_probability_groups:
+        for unknown_group in self.problem.unknown_init_groups:
             unknown_items = set()
             sub_items = set()
             for item in unknown_group:
