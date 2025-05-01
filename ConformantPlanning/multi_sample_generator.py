@@ -55,8 +55,8 @@ class multiSampleGenerator:
             print(counter_example)
             sample_list.append(counter_example)
             for predicate in counter_example:
-                if predicates_map[predicate.get_formated_expression()] in unknown_init:
-                    bool_item = self.constraint_object.to_smt(predicates_map[predicate.get_formated_expression()], 0)
+                if predicates_map[predicate] in unknown_init:
+                    bool_item = self.constraint_object.to_smt(predicates_map[predicate], 0)
                     self.solver.push()
                     self.solver.add(Not(bool_item))
             counter_example = self.call_SMT_solver()
