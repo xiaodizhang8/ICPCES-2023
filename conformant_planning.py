@@ -70,7 +70,7 @@ def conformantPlanningCPCES(problem, domain_file, instance_file, planner, search
             sample_start = time.time()
             counter_example = SUPERB_info.improve_counter_example(counter_example, contexts, sample_generator)
             sampling_time += time.time() - sample_start
-        print(counter_example)
+        # print(counter_example)
         sample_list.append(counter_example)
 
         #update explore problem
@@ -125,7 +125,7 @@ def warmStartingCPCES(problem, domain_file, instance_file, planner, search_engin
             multi_sample_generator = multiSampleGenerator(problem, candidate_plan, action_map, contexts)
             counter_example = multi_sample_generator.compute_multiple_counter_examples_for_warm_starting()
             sampling_time += time.time() - start
-            print(counter_example)
+            # print(counter_example)
             sample_list.extend(counter_example)
         else:
             start = time.time()
@@ -257,7 +257,7 @@ def conformantPlanning(domain_file, instance_file, planner, search_engine=None, 
     print('saperate forall', separate_forall)
     print('warm staring', warm_staring)
     start = time.time()
-    problem = open(domain_file, instance_file)
+    problem = open(domain_file, instance_file, type='conformant_planning')
     if planner == 'superfd':
         conformantPlanningICC(problem, domain_file, instance_file, search_engine, superb)
         print('FD search time: ' + str(fd_search_time))
