@@ -122,12 +122,9 @@ def warmStartingCPCES(problem, domain_file, instance_file, planner, search_engin
         print('iteration:', iteration)
         if iteration == 1:
             start = time.time()
-            print(1)
             multi_sample_generator = multiSampleGenerator(problem, candidate_plan, action_map, contexts)
-            print(2)
             counter_example = multi_sample_generator.compute_multiple_counter_examples_for_warm_starting()
             sampling_time += time.time() - start
-            print(counter_example)
             sample_list.extend(counter_example)
         else:
             start = time.time()

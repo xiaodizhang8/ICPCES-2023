@@ -51,6 +51,7 @@ class multiSampleGenerator:
 
         counter_example = self.call_SMT_solver()
         sample_list = list()
+        print(1)
         while counter_example is not None:
             sample_list.append(counter_example)
             for predicate in counter_example:
@@ -59,6 +60,7 @@ class multiSampleGenerator:
                     self.solver.push()
                     self.solver.add(Not(bool_item))
             counter_example = self.call_SMT_solver()
+            print(counter_example)
         return sample_list
 
 
