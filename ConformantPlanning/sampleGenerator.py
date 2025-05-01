@@ -70,9 +70,7 @@ class sampleGenerator:
         for item in results:
             if item[0].endswith('-0') and item[1] == 'true':
                 counter_example.add(self.constraint_object.declared_predicate[item[0]])
-        print(counter_example)
-        print(self.constraint_object.declared_predicate)
-        return counter_example
+
 
 
     def dump_smt_statements(self):
