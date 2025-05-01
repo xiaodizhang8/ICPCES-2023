@@ -21,7 +21,6 @@ def writeClassicalSampleFile(sample_list, problem, instance_file):
     for i in range(1, len(sample_list) + 1):
         counter_example_set = sample_list[i - 1]
         for counter_example in counter_example_set:
-            print(counter_example)
             res += '  (' + counter_example + ' int' + str(i) + ')\n'
     res += ')\n'
     res += '(:goal (forall (?interpr - interpretation)'
@@ -86,6 +85,8 @@ def writeMergedSeparatedClassicalSampleFile(sample_list, problem, instance_file,
 
 
 def writeSeparatedClassicalSampleFile(sample_list, problem, instance_file):
+    print(111)
+    print(sample_list)
     res = '(define (problem ' + problem.task_name + ')(:domain ' + problem.domain_name + ')(:objects\n'
     for obj in problem.objects:
         obj = str(obj).split(': ')
