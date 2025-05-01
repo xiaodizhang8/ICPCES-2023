@@ -85,8 +85,6 @@ def writeMergedSeparatedClassicalSampleFile(sample_list, problem, instance_file,
 
 
 def writeSeparatedClassicalSampleFile(sample_list, problem, instance_file):
-    print(111)
-    print(sample_list)
     res = '(define (problem ' + problem.task_name + ')(:domain ' + problem.domain_name + ')(:objects\n'
     for obj in problem.objects:
         obj = str(obj).split(': ')

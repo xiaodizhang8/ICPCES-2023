@@ -51,11 +51,13 @@ class multiSampleGenerator:
 
         counter_example = self.call_SMT_solver()
         sample_list = list()
+        print(counter_example)
         while counter_example is not None:
             sample_list.append(counter_example)
             print('--')
             for predicate in counter_example:
                 print(1)
+                break
                 if predicates_map[predicate.get_formated_expression()] in unknown_init:
                     print(2)
                     bool_item = self.constraint_object.to_smt(predicates_map[predicate], 0)
