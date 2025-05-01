@@ -21,6 +21,7 @@ def writeClassicalSampleFile(sample_list, problem, instance_file):
     for i in range(1, len(sample_list) + 1):
         counter_example_set = sample_list[i - 1]
         for counter_example in counter_example_set:
+            print(counter_example)
             res += '  (' + counter_example + ' int' + str(i) + ')\n'
     res += ')\n'
     res += '(:goal (forall (?interpr - interpretation)'
