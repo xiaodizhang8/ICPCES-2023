@@ -70,7 +70,7 @@ def conformantPlanningCPCES(problem, domain_file, instance_file, planner, search
             sample_start = time.time()
             counter_example = SUPERB_info.improve_counter_example(counter_example, contexts, sample_generator)
             sampling_time += time.time() - sample_start
-        # print(counter_example)
+        print(counter_example)
         sample_list.append(counter_example)
 
         #update explore problem
