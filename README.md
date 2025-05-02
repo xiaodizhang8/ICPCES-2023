@@ -7,13 +7,23 @@ https://www.sciencedirect.com/science/article/pii/S000437022030031X
 
 This project builds upon CPCES and introduces three improvements: merging certain facts, warm-starting, and integrating Fast Downward into CPCES.
 
-## Before Running Program
+## Before Running the Program
 1. Download the classical planner FF and install it. Move the compiled executable ''ff'' to the ./classical_planner directory.
 For more information about the FF planner, please refer to:
 https://fai.cs.uni-saarland.de/hoffmann/ff.html
 2. We have already downloaded the Fast Downward planner. The source code is located in the ./downward directory. You need to compile it.
 3. You may have to install some modules in requirements.txt.
 
+## Program Options
+The main function is at conformant_planning.py, in which:
+* -d is the path to the domain file
+* -i is the path to the instance file
+* -p is the planner (ff, fd, superfd). superfd is for integration FD into CPCES only.
+* -s is the searching engine when you are choosing superfd. You should refer to the official website of Fast Downward to see how to use various searching engines.
+* -b (boolean) is whether using superb version of CPCES (always recommended).
+* -m (boolean) is whether using merging certain facts method.
+* -sep (boolean) is whether separate ''forall'' into multiple single formulas in PDDL file.
+* -mul (boolean) is whether using warm-starting CPCES.
 
 ## How to run original CPCES?
 example:
@@ -43,7 +53,7 @@ example:
 python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchmarks/dispose/instances/p_4_2.pddl -p ff -b True -m True -sep False -mul False
 ```
 In the command above, -d is the path of domain file, -i is the path of instance file, -p is the classical planner (either ff or fd), -m True means merging certain facts.
-Sometimes, avoid using ''forall'' in PDDL may improve the searching efficiency. To separate a ''forall'' clause into multiple single clauses, using -sep True.
+Sometimes, avoid using ''forall'' in PDDL may improve the searching efficiency. To separate a ''forall'' clause into multiple single formulas, using -sep True.
 ```bash
 python3 conformant_planning.py -d FD-Benchmarks/dispose/domain.pddl -i FD-Benchmarks/dispose/instances/p_4_2.pddl -p ff -b True -m True -sep True -mul False
 ```
